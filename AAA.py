@@ -1,3 +1,10 @@
+import sqlite3
+import streamlit as st
+
+st.write("SQLite version:", sqlite3.sqlite_version)
+
+
+
 import os
 import openai
 import streamlit as st
