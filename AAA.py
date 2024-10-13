@@ -1,26 +1,4 @@
 import os
-import streamlit as st
-
-# Definisci il percorso della directory del vector DB
-directory = "./chroma_db_final"
-
-# Verifica se la directory esiste
-if os.path.exists(directory):
-    st.write(f"La directory '{directory}' esiste.")
-    
-    # Elenca i file presenti nella directory
-    files = os.listdir(directory)
-    if files:
-        st.write("File presenti nella directory:")
-        for file in files:
-            st.write(file)
-    else:
-        st.write("La directory esiste, ma è vuota.")
-else:
-    st.write(f"La directory '{directory}' non esiste.")
-
-
-import os
 import openai
 import streamlit as st
 import warnings
