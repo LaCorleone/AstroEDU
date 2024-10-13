@@ -1,3 +1,27 @@
+import os
+import streamlit as st
+
+# Definisci il percorso della directory del vector DB
+directory = "./chroma_db_final"
+
+# Verifica se la directory esiste
+if os.path.exists(directory):
+    st.write(f"La directory '{directory}' esiste.")
+    
+    # Elenca i file presenti nella directory
+    files = os.listdir(directory)
+    if files:
+        st.write("File presenti nella directory:")
+        for file in files:
+            st.write(file)
+    else:
+        st.write("La directory esiste, ma è vuota.")
+else:
+    st.write(f"La directory '{directory}' non esiste.")
+
+
+import os
+import openai
 import streamlit as st
 import warnings
 from langchain_community.vectorstores import Chroma
@@ -9,7 +33,8 @@ from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.messages import AIMessage, HumanMessage
 
 # Configura la tua logica di AI
-openai_api_key = "sk-proj-O8Eo9hYFc6NOPFJbxCE1T3BlbkFJRZ6p1BeX9gORKYbI0I2m"
+openai_api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = openai_api_key
 embeddings = OpenAIEmbeddings(api_key=openai_api_key)
 
 vectorstore = Chroma(embedding_function=embeddings,persist_directory="./chroma_db_final")
