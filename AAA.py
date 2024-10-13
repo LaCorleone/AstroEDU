@@ -12,14 +12,13 @@ from langchain_core.messages import AIMessage, HumanMessage
 
 # Configura la tua logica di AI
 openai.api_key = os.getenv("OPENAI_API_KEY")
-openai.api_key = openai_api_key
-embeddings = OpenAIEmbeddings(api_key=openai_api_key)
+embeddings = OpenAIEmbeddings(api_key=openai.api_key)
 
 vectorstore = Chroma(embedding_function=embeddings,persist_directory="./chroma_db_final")
 # Retrieve and generate using the relevant snippets of the blog.
 retriever = vectorstore.as_retriever()
 
-llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0, openai_api_key=openai_api_key)
+llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0, openai_api_key=openai.api_key)
 
 contextualize_q_system_prompt = """Given a chat history and the latest user question \
 which might reference context in the chat history, formulate a standalone question \
