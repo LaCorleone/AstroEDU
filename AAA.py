@@ -14,6 +14,27 @@ from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.messages import AIMessage, HumanMessage
 
+from supabase import create_client, Client
+from datetime import datetime
+
+SUPABASE_URL = "https://tlxjudumzonvizztxvhi.supabase.co"
+SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRseGp1ZHVtem9udml6enR4dmhpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzAzMjIzMjksImV4cCI6MjA0NTg5ODMyOX0.vV6SEMAIKHSx_aYup61udLnd0XmrJGGsfS_DONl5cgw"
+
+supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
+
+def log_interaction(user_id, question, answer):
+    data = {
+        "user_id": user_id,
+        "question": question,
+        "answer": answer,
+        "timestamp": datetime.now().isoformat()  # formato ISO per compatibilità con PostgreSQL
+    }
+    response = supabase.table("interactions").insert(data).execute()
+    if response.status_code == 201:
+        print("Interazione salvata con successo!")
+    else:
+        print("Errore nel salvataggio:", response.error)
+
 # Configura la tua logica di AI
 openai_api_key = os.getenv("OPENAI_API_KEY")
 openai.api_key = openai_api_key
@@ -190,12 +211,17 @@ def get_ai_response(question, chat_history):
 # Funzione per gestire l'invio dei messaggi tramite il campo di input della chat
 def chat_actions():
     user_input = st.session_state["chat_input"]
+    user_id = st.session_state.get("user_id", "utente_anonimo")  # Usa un ID generico o dinamico
+    
     st.session_state["chat_history"].append({"role": "user", "content": user_input})
     
     chat_history = [{"role": msg["role"], "content": msg["content"]} for msg in st.session_state["chat_history"]]
     ai_response = get_ai_response(user_input, chat_history)
     
     st.session_state["chat_history"].append({"role": "assistant", "content": ai_response})
+
+    # Salva l’interazione nel database Supabase
+    log_interaction(user_id, user_input, ai_response)
 
 
 # Inizializza la cronologia della chat se non esiste
