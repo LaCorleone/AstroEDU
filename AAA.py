@@ -19,7 +19,7 @@ openai_api_key = os.getenv("OPENAI_API_KEY")
 openai.api_key = openai_api_key
 embeddings = OpenAIEmbeddings(api_key=openai_api_key)
 
-vectorstore = Chroma(embedding_function=embeddings,persist_directory="./chroma_db_final")
+vectorstore = Chroma(embedding_function=embeddings,persist_directory="./chroma_db_final/chroma_db_final")
 
 # Retrieve and generate using the relevant snippets of the blog.
 retriever = vectorstore.as_retriever()
@@ -189,13 +189,14 @@ def get_ai_response(question, chat_history):
 
 # Funzione per gestire l'invio dei messaggi tramite il campo di input della chat
 def chat_actions():
-    user_input = st.session_state["chat_input"]    
+    user_input = st.session_state["chat_input"]
     st.session_state["chat_history"].append({"role": "user", "content": user_input})
     
     chat_history = [{"role": msg["role"], "content": msg["content"]} for msg in st.session_state["chat_history"]]
     ai_response = get_ai_response(user_input, chat_history)
     
     st.session_state["chat_history"].append({"role": "assistant", "content": ai_response})
+
 
 # Inizializza la cronologia della chat se non esiste
 if "chat_history" not in st.session_state:
