@@ -29,7 +29,7 @@ def log_interaction(user_id, question, answer):
         "answer": answer,
         "timestamp": datetime.now().isoformat()  # formato ISO per compatibilità con PostgreSQL
     }
-    response = supabase.table("interactions").insert(data).execute()
+    response = supabase.table("interactions_sessions").insert(data).execute()
     if response.status_code == 201:
         print("Interazione salvata con successo!")
     else:
