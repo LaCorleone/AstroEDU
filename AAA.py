@@ -98,7 +98,7 @@ Dammi sempre il link che hai a disposizione associato alla risorsa didattica:
 'https://astroedu.iau.org/en/activities/1645/navigation-in-the-ancient-mediterranean-and-beyond/',
 'https://astroedu.iau.org/en/activities/1703/the-4-point-backyard-diurnal-parallax-method/',
 'https://astroedu.iau.org/en/activities/1616/evening-sky-watching-for-students/',
-'https://astroedu.iau.org/en/activity/street-lights-as-standard-candles/',
+'https://astroedu.iau.org/en/activities/1535/street-lights-as-standard-candles/',
 'https://astroedu.iau.org/en/activities/1609/how-to-travel-on-earth-without-getting-lost/',
 'https://astroedu.iau.org/en/activities/1604/seasons-around-the-world/',
 'https://astroedu.iau.org/en/activities/1603/investigating-the-atmosphere-air-takes-up-space/',
@@ -115,9 +115,9 @@ Dammi sempre il link che hai a disposizione associato alla risorsa didattica:
 'https://astroedu.iau.org/en/activities/1608/making-a-sundial/',
 'https://astroedu.iau.org/en/activities/1607/what-is-a-constellation/',
 'https://astroedu.iau.org/en/activities/1606/what-is-time/',
-'https://astroedu.iau.org/en/activities/day-and-night-in-the-world/',
+'https://astroedu.iau.org/en/activities/1605/day-and-night-in-the-world/',
 'https://astroedu.iau.org/en/activities/1601/fizzy-balloons-co2-in-school/',
-'https://astroedu.iau.org/en/activities/lunar-day/',
+'https://astroedu.iau.org/en/activities/1504/lunar-day/',
 'https://astroedu.iau.org/en/activities/1501/how-many-stars-can-you-see-at-night/',
 'https://astroedu.iau.org/en/activities/1512/solar-system-model-on-a-city-map/',
 'https://astroedu.iau.org/en/activities/1503/suns-shadow/',
@@ -127,7 +127,6 @@ Dammi sempre il link che hai a disposizione associato alla risorsa didattica:
 'https://astroedu.iau.org/en/activities/1412/blue-marble-in-empty-space/',
 'https://astroedu.iau.org/en/activities/1411/the-fibre-optic-cable-class/',
 'https://astroedu.iau.org/en/activities/1406/meet-our-home-planet-earth/',
-'https://astroedu.iau.org/en/activities/1404/deadly-moons/',
 'https://astroedu.iau.org/en/activities/1408/meet-our-neighbours-moon/',
 'https://astroedu.iau.org/en/activities/1409/build-a-safe-sun-viewer/',
 'https://astroedu.iau.org/en/activities/1410/coma-cluster-of-galaxies/',
@@ -136,7 +135,7 @@ Dammi sempre il link che hai a disposizione associato alla risorsa didattica:
 'https://astroedu.iau.org/en/activities/1402/how-light-pollution-affects-the-stars-magnitude-readers/',
 'https://astroedu.iau.org/en/activities/1401/snakes-ladders-game/',
 'https://astroedu.iau.org/en/activities/1311/lunar-landscape/',
-'http://astroedu.iau.org/en/activities/why-do-we-have-day-and-night/',
+'http://astroedu.iau.org/en/activities/1310/why-do-we-have-day-and-night/',
 'https://astroedu.iau.org/en/activities/1308/meet-our-neighbours-sun/',
 'https://astroedu.iau.org/en/activities/1307/glitter-your-milky-way/',
 'https://astroedu.iau.org/en/activities/1306/star-in-a-box-advanced/',
@@ -144,7 +143,13 @@ Dammi sempre il link che hai a disposizione associato alla risorsa didattica:
 'https://astroedu.iau.org/en/activities/1305/measure-the-solar-diameter/',
 'https://astroedu.iau.org/en/activities/1302/star-in-a-box-high-school/',
 'https://astroedu.iau.org/en/activities/1304/model-of-a-black-hole/',
-'https://astroedu.iau.org/en/activities/1303/design-your-alien/'.
+'https://astroedu.iau.org/en/activities/1303/design-your-alien/',
+'https://astroedu.iau.org/en/activities/1407/levitating-astronaut/',
+'https://astroedu.iau.org/en/activities/1309/how-high-is-the-sky/',
+'https://astroedu.iau.org/en/activities/2407/touching-the-stars/',
+'https://astroedu.iau.org/en/activities/2408/321-time-for-water-rockets/',
+'https://astroedu.iau.org/en/activities/measuring-an-exoplanet/',
+'https://astroedu.iau.org/en/activities/2410/cubic-planets/'.
 Quando viene richiesta una attività specifica restituiscimi anche l'età e il livello e la durata.
 Traduci la risposta nella stessa lingua della domanda.
 
