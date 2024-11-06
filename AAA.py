@@ -173,8 +173,7 @@ st.image("./LOGO2.webp", use_column_width=True)
 
 # Sezione di Benvenuto
 st.markdown("<h2 style='color: #FFA500;'>Welcome to AstroEDU!</h2>", unsafe_allow_html=True)
-st.write("I'm here to help you find and make the best use of educational materials from AstroEDU. 
-How can I assist you? If you want, speak to me in your language!")
+st.write("I'm here to help you find and make the best use of educational materials from AstroEDU.\nHow can I assist you? If you want, speak to me in your language!")
 
 # Funzione per ottenere la risposta dall'assistente AI
 def get_ai_response(question, chat_history):
