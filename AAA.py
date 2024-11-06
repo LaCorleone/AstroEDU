@@ -1,7 +1,3 @@
-import pysqlite3
-import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
-
 import os
 import openai
 import streamlit as st
@@ -176,8 +172,8 @@ rag_chain = create_retrieval_chain(history_aware_retriever, question_answer_chai
 st.image("./LOGO2.webp", use_column_width=True) 
 
 # Sezione di Benvenuto
-st.markdown("<h2 style='color: #FFA500;'>Benvenuti su AstroEDU!</h2>", unsafe_allow_html=True)
-st.write("Sono qui per aiutarti a trovare materiali didattici in modo rapido e semplice. Come posso aiutarti oggi?")
+st.markdown("<h2 style='color: #FFA500;'>Welcome to AstroEDU!</h2>", unsafe_allow_html=True)
+st.write("I'm here to help you find and make the best use of educational materials from AstroEDU. How can I assist you? If you want, speak to me in your language!")
 
 # Funzione per ottenere la risposta dall'assistente AI
 def get_ai_response(question, chat_history):
