@@ -162,6 +162,7 @@ Quando viene richiesta una attività specifica, includi anche l’età consiglia
 
 Traduci la risposta nella stessa lingua della domanda.
 
+Se ti richiedo un’immagine su un argomento specifico, rispondimi dandomi l’immagine presente nel tuo database.
 
 Context: {context}
 
