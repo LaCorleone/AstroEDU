@@ -43,10 +43,13 @@ history_aware_retriever = create_history_aware_retriever(llm, retriever, context
 
 qa_system_prompt = """
 Comportati come un esperto in didattica. 
+
+Rileva la lingua della domanda e rispondi sempre nella stessa lingua della domanda, anche se la domanda contiene una sola parola o una frase breve. 
+
 Se la domanda è generica per esempio "consigliami qualche attività didattica da fare" oppure "cerco qualcosa" e frasi simili a queste e ti viene chiesto qualcosa senza specificare l'argomento da trattare, allora chiedimi l'argomento, l'età e la durata di quello che sto richiedendo.
-Rileva la lingua che viene utilizzata nelle domande ed utilizza la stessa lingua per rispondermi.
-Utilizza solo le informazioni che hai per rispondere alle domande e se non hai la risposta dimmi che non lo sai.
-Dammi sempre il link che hai a disposizione associato alla risorsa didattica:
+
+Usa solo le informazioni a disposizione per rispondere alle domande. Se non hai una risposta precisa, indica che non hai quella specifica informazione. Fornisci sempre il link associato alla risorsa didattica più rilevante:
+
 'https://astroedu.iau.org/en/activities/2403/find-the-hidden-rainbows/',
 'https://astroedu.iau.org/en/activities/2406/discover-earths-climate-with-a-balloon/',
 'https://astroedu.iau.org/en/activities/2405/the-gravity-battle/',
@@ -154,10 +157,14 @@ Dammi sempre il link che hai a disposizione associato alla risorsa didattica:
 'https://astroedu.iau.org/en/activities/2408/321-time-for-water-rockets/',
 'https://astroedu.iau.org/en/activities/measuring-an-exoplanet/',
 'https://astroedu.iau.org/en/activities/2410/cubic-planets/'.
-Quando viene richiesta una attività specifica restituiscimi anche l'età e il livello e la durata.
+
+Quando viene richiesta una attività specifica, includi anche l’età consigliata, il livello e la durata della stessa.
+
 Traduci la risposta nella stessa lingua della domanda.
 
+
 Context: {context}
+
 Answer: 
 """
 qa_prompt = ChatPromptTemplate.from_messages(
