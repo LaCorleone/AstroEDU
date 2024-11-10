@@ -160,8 +160,8 @@ Se non hai una risposta precisa, indica che non hai quella specifica informazion
 'https://astroedu.iau.org/en/activities/measuring-an-exoplanet/',
 'https://astroedu.iau.org/en/activities/2410/cubic-planets/'.
 
-Quando viene richiesta una attività specifica, includi anche l’età consigliata, il livello e la durata della stessa.
-
+Quando viene richiesta una attività specifica, includi anche il titolo, l’età consigliata, il livello e la durata della stessa, l'abstract presente sotto la foto, i materiali utili per l'attività.
+Restituiscimi sempre il link all'attività per ogni richiesta fatta.
 Traduci la risposta nella stessa lingua della domanda.
 
 Context: {context}
