@@ -159,9 +159,6 @@ Seleziona il link più rilevante tra:
 
 Quando viene richiesta una attività specifica, includi anche il titolo, l’età consigliata, il livello e la durata della stessa.
 
-Rispetta rigorosamente il formato richiesto, senza aggiungere o omettere sezioni. 
-Rispondi solo nel formato specificato, senza commenti aggiuntivi o riformulazioni.
-
 Context: {context}
 
 Answer: 
