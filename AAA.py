@@ -19,13 +19,13 @@ openai_api_key = os.getenv("OPENAI_API_KEY")
 openai.api_key = openai_api_key
 embeddings = OpenAIEmbeddings(api_key=openai_api_key)
 
-vectorstore = Chroma(embedding_function=embeddings,persist_directory="./chroma_db_final/chroma_db_final_new")
+vectorstore = Chroma(embedding_function=embeddings, persist_directory="./chroma_db_final/chroma_db_final_new")
 
 # Retrieve and generate using the relevant snippets of the blog.
 retriever = vectorstore.as_retriever()
-
 llm = ChatOpenAI(model_name="gpt-4o", temperature=0, openai_api_key=openai_api_key)
 
+# Prompt per contestualizzare la domanda con la cronologia della chat
 contextualize_q_system_prompt = """Given a chat history and the latest user question \
 which might reference context in the chat history, formulate a standalone question \
 which can be understood without the chat history. Do NOT answer the question, \
@@ -38,9 +38,9 @@ contextualize_q_prompt = ChatPromptTemplate.from_messages(
     ]
 )
 
-
 history_aware_retriever = create_history_aware_retriever(llm, retriever, contextualize_q_prompt)
 
+# Prompt per il sistema di domande e risposte (QA)
 qa_system_prompt = """
 Comportati come un esperto in didattica e rispondimi nella maniera più precisa possibile. 
 Se la domanda è generica per esempio "consigliami qualche attività didattica da fare" oppure "cerco qualcosa" e frasi simili a queste e ti viene chiesto qualcosa senza specificare l'argomento da trattare, allora chiedimi l'argomento, l'età e la durata di quello che sto richiedendo.
@@ -164,6 +164,7 @@ Traduci la risposta nella stessa lingua della domanda.
 
 Context: {context}
 Answer: 
+
 """
 qa_prompt = ChatPromptTemplate.from_messages(
     [
@@ -173,29 +174,61 @@ qa_prompt = ChatPromptTemplate.from_messages(
     ]
 )
 
-
 question_answer_chain = create_stuff_documents_chain(llm, qa_prompt)
-
 rag_chain = create_retrieval_chain(history_aware_retriever, question_answer_chain)
 
-# Configura la pagina
-#st.set_page_config(page_title="AstroEdu AI Assistant", layout="wide")
+# Prompt per estrarre età, livello e durata
+extract_details_prompt = """
+Estrarre i seguenti dettagli dal testo:
+- Età: specifica l'età o l'intervallo di età.
+- Livello: specifica il livello (es. base, intermedio, avanzato).
+- Durata: indica la durata se presente.
 
-# Intestazione
-#st.markdown("<h1 style='text-align: center; color: #0004ff;'>Welcome to AstroEDU AI Assistant!</h1>", unsafe_allow_html=True)
-st.image("./LOGO2.webp", use_column_width=True) 
+Testo:
+{text}
 
-# Sezione di Benvenuto
-st.markdown("<h2 style='color: #FFA500;'>Welcome to AstroEDU AI Assistant!</h2>", unsafe_allow_html=True)
-st.markdown("I'm here to help you find and make the best use of educational materials from AstroEDU.<br>How can I assist you? If you want, speak to me in your language!", unsafe_allow_html=True)
+Risposta strutturata:
+- Età: ...
+- Livello: ...
+- Durata: ...
+"""
 
-# Funzione per ottenere la risposta dall'assistente AI
+# Funzione per estrarre dettagli tramite il modello di linguaggio
+def extract_details_with_llm(text, llm):
+    prompt = extract_details_prompt.format(text=text)
+    response = llm(prompt)
+    return response
+
+# Funzione per estrarre dettagli dai documenti rilevanti
+def get_detailed_responses(question):
+    # Recupera i documenti rilevanti dal retriever
+    relevant_documents = retriever.get_relevant_documents(question)
+    
+    # Itera su ogni documento e estrai i dettagli
+    detailed_responses = []
+    for result in relevant_documents:
+        # Estrarre i dettagli usando la funzione LLM
+        structured_response = extract_details_with_llm(result.page_content, llm)
+        detailed_responses.append(structured_response)
+    
+    return detailed_responses
+
+# Funzione aggiornata per ottenere la risposta dall'assistente AI
 def get_ai_response(question, chat_history):
+    # Ottieni la risposta di RAG con l'analisi della cronologia
     response = rag_chain.invoke({
         "chat_history": chat_history,
         "input": question
     })
-    return response['answer']
+    
+    # Estrarre dettagli specifici dai documenti recuperati, se necessario
+    detailed_responses = get_detailed_responses(question)
+    
+    # Combina la risposta di RAG con le risposte dettagliate
+    return {
+        "answer": response['answer'],
+        "details": detailed_responses
+    }
 
 # Funzione per gestire l'invio dei messaggi tramite il campo di input della chat
 def chat_actions():
@@ -205,12 +238,24 @@ def chat_actions():
     chat_history = [{"role": msg["role"], "content": msg["content"]} for msg in st.session_state["chat_history"]]
     ai_response = get_ai_response(user_input, chat_history)
     
-    st.session_state["chat_history"].append({"role": "assistant", "content": ai_response})
-
+    # Aggiungi la risposta dell'assistente alla cronologia
+    st.session_state["chat_history"].append({"role": "assistant", "content": ai_response["answer"]})
+    
+    # Visualizza i dettagli estratti, se disponibili
+    if ai_response["details"]:
+        for detail in ai_response["details"]:
+            st.session_state["chat_history"].append({"role": "assistant", "content": detail})
 
 # Inizializza la cronologia della chat se non esiste
 if "chat_history" not in st.session_state:
     st.session_state["chat_history"] = []
+
+# Configura la pagina
+st.image("./LOGO2.webp", use_column_width=True) 
+
+# Sezione di Benvenuto
+st.markdown("<h2 style='color: #FFA500;'>Welcome to AstroEDU AI Assistant!</h2>", unsafe_allow_html=True)
+st.markdown("I'm here to help you find and make the best use of educational materials from AstroEDU.<br>How can I assist you? If you want, speak to me in your language!", unsafe_allow_html=True)
 
 # Campo di input per i messaggi della chat
 st.chat_input("Enter your message", on_submit=chat_actions, key="chat_input")
