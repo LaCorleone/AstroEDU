@@ -222,11 +222,28 @@ st.markdown("I'm here to help you find and make the best use of educational mate
 
 # Funzione per ottenere la risposta dall'assistente AI
 def get_ai_response(question, chat_history):
+    # Recupera i documenti rilevanti dal vectorstore
+    relevant_documents = retriever.retrieve(question)
+    
+    # Estrai dettagli dai documenti rilevanti
+    extracted_details = []
+    for doc in relevant_documents:
+        details = extract_details_with_llm(doc.page_content, llm)
+        extracted_details.append(details)
+    
+    # Crea una risposta iniziale utilizzando il retriever e la domanda
     response = rag_chain.invoke({
         "chat_history": chat_history,
         "input": question
     })
     return response['answer']
+    
+    # Formatta i dettagli estratti come stringa e aggiungili alla risposta
+    extracted_info_text = "\n".join([f"Documento {i+1}:\n{detail}" for i, detail in enumerate(extracted_details)])
+    full_response = f"{response}\n\nDettagli Estratti:\n{extracted_info_text}"
+    
+    return full_response
+
 
 # Funzione per gestire l'invio dei messaggi tramite il campo di input della chat
 def chat_actions():
