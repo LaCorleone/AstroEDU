@@ -150,7 +150,6 @@ Dammi sempre il link che hai a disposizione associato alla risorsa didattica:
 'https://astroedu.iau.org/en/activities/1304/model-of-a-black-hole/',
 'https://astroedu.iau.org/en/activities/1303/design-your-alien/'.
 
-Se ti viene richiesto attività per chiechi, non vedenti, ipovedenti rispondi con le attività di astronomia tattile che hai a disposizione.
 Quando viene richiesta una attività specifica restituiscimi anche l'età e il livello e la durata.
 Traduci la risposta nella stessa lingua della domanda.
 
