@@ -155,6 +155,7 @@ Se ti viene richiesta una attività per ciechi, ipovedenti, non vedenti, tattile
 'https://astroedu.iau.org/en/activities/meet-our-neighbours-moon/',
 'https://astroedu.iau.org/en/activities/meet-our-neighbours-sun/',
 'https://astroedu.iau.org/en/activities/discover-earths-climate-with-a-balloon/'
+Se la domanda che ti viene fatto non riguarda nessun argomenti di questi allora rispondimi che non hai attività per quell'argomento per ragazzi ciechi, ipovedenti, non vedenti, tattile.
 
 Traduci la risposta nella stessa lingua della domanda.
 
