@@ -19,7 +19,7 @@ openai_api_key = os.getenv("OPENAI_API_KEY")
 openai.api_key = openai_api_key
 embeddings = OpenAIEmbeddings(api_key=openai_api_key)
 
-vectorstore = Chroma(embedding_function=embeddings,persist_directory="./chroma_db_final/chroma_db_final_new_2")
+vectorstore = Chroma(embedding_function=embeddings,persist_directory="./chroma_db_final/chroma_db_final_new")
 
 # Retrieve and generate using the relevant snippets of the blog.
 retriever = vectorstore.as_retriever()
@@ -161,7 +161,9 @@ Fornisci sempre il link associato alla risorsa didattica più rilevante:
 'https://astroedu.iau.org/en/activities/measuring-an-exoplanet/',
 'https://astroedu.iau.org/en/activities/2410/cubic-planets/'.
 
-Individua i <mark> e restituisci ogni volta che ti viene richiesta una attività i campi ossia: Age, Level, Time,Cost,Materials
+Quando viene richiesta una attività specifica, includi anche il titolo, l’età consigliata, il livello e la durata della stessa.
+
+Ogni volta che rispondi con una attività didattica traduci nella lingua della richiesta il titolo, l'età, la durata, l'abstract, i materiali e queste informazioni prendile direttamente dalla pagina del link che hai selezionato.
 
 Traduci la risposta nella stessa lingua della domanda.
 
