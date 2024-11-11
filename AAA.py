@@ -201,7 +201,7 @@ st.image("./LOGO2.webp", use_column_width=True)
 st.markdown("<h2 style='color: #FFA500;'>Welcome to AstroEDU AI Assistant!</h2>", unsafe_allow_html=True)
 st.markdown("I'm here to help you find and make the best use of educational materials from AstroEDU.<br>How can I assist you? If you want, speak to me in your language!", unsafe_allow_html=True)
 
-# Funzione per ottenere la risposta dall'assistente AI
+# Funzione per ottenere la risposta dall'assistente AI con debug
 def get_ai_response(question, chat_history):
     try:
         # Esegue la query al vectorstore
@@ -212,12 +212,22 @@ def get_ai_response(question, chat_history):
             st.warning("Nessun risultato trovato per la query.")
             return "Nessun risultato trovato."
         
-        # Per ogni risultato, estrae i dettagli aggiuntivi usando il modello di linguaggio
+        # Stampa per debugging il contenuto dei risultati trovati
+        print(f"Numero di risultati trovati: {len(search_results)}")
         results_with_details = []
-        for result in search_results:
-            details = extract_details_with_llm(result.page_content)
-            results_with_details.append(details)
         
+        for i, result in enumerate(search_results):
+            print(f"Risultato {i+1} contenuto:\n{result.page_content}\n")  # Debug del contenuto
+
+            # Prova a estrarre i dettagli usando il modello di linguaggio
+            try:
+                details = extract_details_with_llm(result.page_content)
+                results_with_details.append(details)
+                print(f"Dettagli estratti per il risultato {i+1}:\n{details}\n")  # Debug dei dettagli estratti
+            except Exception as e:
+                print(f"Errore nell'estrazione dei dettagli per il risultato {i+1}: {e}")
+                results_with_details.append("Dettagli non disponibili")
+
         # Costruisce una risposta da mostrare all'utente
         response_text = "Risultati trovati:\n"
         for idx, details in enumerate(results_with_details, start=1):
