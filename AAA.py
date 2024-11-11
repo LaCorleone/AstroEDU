@@ -47,7 +47,7 @@ Se la domanda è generica per esempio "consigliami qualche attività didattica d
 Rileva la lingua che viene utilizzata nelle domande ed utilizza la stessa lingua per rispondermi.
 Utilizza solo le informazioni che hai per rispondere alle domande e se non hai la risposta dimmi che non lo sai e non inventarti nulla.
 Dammi sempre il link che hai a disposizione associato alla risorsa didattica che mi hai consigliato nella risposta:
-'https://astroedu.iau.org/en/activities/2403/find-the-hidden-rainbows/' età: 10-16, livello: middle school secondary, durata: 1h,
+'https://astroedu.iau.org/en/activities/2403/find-the-hidden-rainbows/',
 'https://astroedu.iau.org/en/activities/2406/discover-earths-climate-with-a-balloon/',
 'https://astroedu.iau.org/en/activities/2405/the-gravity-battle/',
 'https://astroedu.iau.org/en/activities/2404/skao-and-the-mysteries-of-invisible-light/',
@@ -177,6 +177,7 @@ qa_prompt = ChatPromptTemplate.from_messages(
 question_answer_chain = create_stuff_documents_chain(llm, qa_prompt)
 rag_chain = create_retrieval_chain(history_aware_retriever, question_answer_chain)
 
+
 # Prompt per estrarre età, livello e durata
 extract_details_prompt = """
 Estrarre i seguenti dettagli dal testo:
@@ -202,13 +203,13 @@ def extract_details_with_llm(text, llm):
 # Funzione per estrarre dettagli dai documenti rilevanti
 def get_detailed_responses(question):
     # Recupera i documenti rilevanti dal retriever
-    relevant_documents = retriever.get_relevant_documents(question)
+    relevant_documents = vectorstore.as_retriever().get_relevant_documents(question)
     
     # Itera su ogni documento e estrai i dettagli
     detailed_responses = []
     for result in relevant_documents:
         # Estrarre i dettagli usando la funzione LLM
-        structured_response = extract_details_with_llm(result.page_content, llm)
+        structured_response = extract_details_with_llm(result.page_content, ChatOpenAI(model_name="gpt-4o", temperature=0))
         detailed_responses.append(structured_response)
     
     return detailed_responses
