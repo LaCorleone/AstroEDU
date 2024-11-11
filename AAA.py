@@ -16,43 +16,15 @@ from langchain_core.messages import AIMessage, HumanMessage
 
 # Configura la tua logica di AI
 openai_api_key = os.getenv("OPENAI_API_KEY")
-if openai_api_key is None:
-    st.error("API key for OpenAI not found. Please set the OPENAI_API_KEY environment variable.")
 openai.api_key = openai_api_key
 embeddings = OpenAIEmbeddings(api_key=openai_api_key)
 
-vectorstore = Chroma(embedding_function=embeddings, persist_directory="./chroma_db_final/chroma_db_final_new")
+vectorstore = Chroma(embedding_function=embeddings,persist_directory="./chroma_db_final/chroma_db_final_new")
 
 # Retrieve and generate using the relevant snippets of the blog.
 retriever = vectorstore.as_retriever()
 
 llm = ChatOpenAI(model_name="gpt-4o", temperature=0, openai_api_key=openai_api_key)
-
-# Prompt per estrarre dettagli specifici (età, livello, durata)
-extract_details_prompt = """
-Estrarre i seguenti dettagli dal testo:
-- Età: specifica l'età o l'intervallo di età.
-- Livello: specifica il livello (es. base, intermedio, avanzato).
-- Durata: indica la durata se presente.
-
-Testo:
-{text}
-
-Risposta strutturata:
-- Età: ...
-- Livello: ...
-- Durata: ...
-"""
-
-# Funzione per estrarre dettagli con il modello di linguaggio
-def extract_details_with_llm(text):
-    try:
-        prompt = extract_details_prompt.format(text=text)
-        response = llm(prompt)
-        return response
-    except Exception as e:
-        st.error(f"Errore durante l'estrazione dei dettagli: {e}")
-        return "Dettagli non disponibili"
 
 contextualize_q_system_prompt = """Given a chat history and the latest user question \
 which might reference context in the chat history, formulate a standalone question \
@@ -65,6 +37,7 @@ contextualize_q_prompt = ChatPromptTemplate.from_messages(
         ("human", "{input}"),
     ]
 )
+
 
 history_aware_retriever = create_history_aware_retriever(llm, retriever, contextualize_q_prompt)
 
@@ -180,7 +153,7 @@ Quando viene richiesta una attività specifica restituiscimi anche l'età e il l
 Traduci la risposta nella stessa lingua della domanda.
 
 Context: {context}
-Answer:
+Answer: 
 """
 qa_prompt = ChatPromptTemplate.from_messages(
     [
@@ -190,53 +163,29 @@ qa_prompt = ChatPromptTemplate.from_messages(
     ]
 )
 
+
 question_answer_chain = create_stuff_documents_chain(llm, qa_prompt)
 
 rag_chain = create_retrieval_chain(history_aware_retriever, question_answer_chain)
 
 # Configura la pagina
+#st.set_page_config(page_title="AstroEdu AI Assistant", layout="wide")
+
+# Intestazione
+#st.markdown("<h1 style='text-align: center; color: #0004ff;'>Welcome to AstroEDU AI Assistant!</h1>", unsafe_allow_html=True)
 st.image("./LOGO2.webp", use_column_width=True) 
 
 # Sezione di Benvenuto
 st.markdown("<h2 style='color: #FFA500;'>Welcome to AstroEDU AI Assistant!</h2>", unsafe_allow_html=True)
 st.markdown("I'm here to help you find and make the best use of educational materials from AstroEDU.<br>How can I assist you? If you want, speak to me in your language!", unsafe_allow_html=True)
 
-# Funzione per ottenere la risposta dall'assistente AI con debug
+# Funzione per ottenere la risposta dall'assistente AI
 def get_ai_response(question, chat_history):
-    try:
-        # Esegue la query al vectorstore
-        search_results = vectorstore.similarity_search(question)
-        
-        # Verifica se ci sono risultati
-        if not search_results:
-            st.warning("Nessun risultato trovato per la query.")
-            return "Nessun risultato trovato."
-        
-        # Stampa per debugging il contenuto dei risultati trovati
-        print(f"Numero di risultati trovati: {len(search_results)}")
-        results_with_details = []
-        
-        for i, result in enumerate(search_results):
-            print(f"Risultato {i+1} contenuto:\n{result.page_content}\n")  # Debug del contenuto
-
-            # Prova a estrarre i dettagli usando il modello di linguaggio
-            try:
-                details = extract_details_with_llm(result.page_content)
-                results_with_details.append(details)
-                print(f"Dettagli estratti per il risultato {i+1}:\n{details}\n")  # Debug dei dettagli estratti
-            except Exception as e:
-                print(f"Errore nell'estrazione dei dettagli per il risultato {i+1}: {e}")
-                results_with_details.append("Dettagli non disponibili")
-
-        # Costruisce una risposta da mostrare all'utente
-        response_text = "Risultati trovati:\n"
-        for idx, details in enumerate(results_with_details, start=1):
-            response_text += f"Risultato {idx}:\n{details}\n\n"
-        
-        return response_text
-    except Exception as e:
-        st.error(f"Errore durante la generazione della risposta: {e}")
-        return "Si è verificato un errore durante l'elaborazione della richiesta."
+    response = rag_chain.invoke({
+        "chat_history": chat_history,
+        "input": question
+    })
+    return response['answer']
 
 # Funzione per gestire l'invio dei messaggi tramite il campo di input della chat
 def chat_actions():
@@ -247,6 +196,7 @@ def chat_actions():
     ai_response = get_ai_response(user_input, chat_history)
     
     st.session_state["chat_history"].append({"role": "assistant", "content": ai_response})
+
 
 # Inizializza la cronologia della chat se non esiste
 if "chat_history" not in st.session_state:
