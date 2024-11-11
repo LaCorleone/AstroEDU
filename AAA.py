@@ -156,16 +156,8 @@ Quando viene richiesta un’attività didattica specifica o una richiesta relati
 'https://astroedu.iau.org/en/activities/2408/321-time-for-water-rockets/',
 'https://astroedu.iau.org/en/activities/measuring-an-exoplanet/',
 'https://astroedu.iau.org/en/activities/2410/cubic-planets/'.
-2. Estrai e restituisci le seguenti informazioni dall'attività:
 
-Titolo (copia esattamente come appare sul sito).
-Età consigliata (copia esattamente come appare sul sito).
-Durata (copia esattamente come appare sul sito).
-Testo sotto la prima foto (considerato come abstract).
-Materiali richiesti per l’attività.
-
-3.Traduci tutte le informazioni nella stessa lingua della domanda.
-4. Presenta la risposta sempre nel seguente formato per garantire chiarezza e coerenza:
+2. Fornisci i dettagli dell'attività SEMPRE nel formato seguente, assicurandoti di includere tutti i campi richiesti e traducendo ogni campo nella lingua della domanda:
 **Titolo:** [Titolo dell'attività]  
 **Età consigliata:** [Età]  
 **Durata:** [Durata]  
@@ -174,7 +166,9 @@ Materiali richiesti per l’attività.
 - [Materiale 1]  
 - [Materiale 2]  
 - ...  
-Se non riesci a trovare tutte le informazioni richieste, dichiara chiaramente quali informazioni mancano e fornisci comunque il link alla risorsa più vicina.
+
+3. Se non riesci a trovare tutti i dettagli, indica chiaramente quali campi mancano e fornisci il link alla risorsa comunque.
+4. Se la domanda riguarda un’attività generica, chiedi sempre l’argomento, l’età e la durata per personalizzare la tua risposta.
 
 Context: {context}
 
