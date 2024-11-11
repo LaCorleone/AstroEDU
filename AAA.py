@@ -26,6 +26,27 @@ retriever = vectorstore.as_retriever()
 
 llm = ChatOpenAI(model_name="gpt-4o", temperature=0, openai_api_key=openai_api_key)
 
+# Prompt per estrarre dettagli specifici (età, livello, durata)
+extract_details_prompt = """
+Estrarre i seguenti dettagli dal testo:
+- Età: specifica l'età o l'intervallo di età.
+- Livello: specifica il livello (es. base, intermedio, avanzato).
+- Durata: indica la durata se presente.
+
+Testo:
+{text}
+
+Risposta strutturata:
+- Età: ...
+- Livello: ...
+- Durata: ...
+"""
+
+def extract_details_with_llm(text):
+    prompt = extract_details_prompt.format(text=text)
+    response = llm(prompt)
+    return response
+
 contextualize_q_system_prompt = """Given a chat history and the latest user question \
 which might reference context in the chat history, formulate a standalone question \
 which can be understood without the chat history. Do NOT answer the question, \
@@ -43,6 +64,7 @@ history_aware_retriever = create_history_aware_retriever(llm, retriever, context
 
 qa_system_prompt = """
 Comportati come un esperto in didattica. 
+
 Se la domanda è generica per esempio "consigliami qualche attività didattica da fare" oppure "cerco qualcosa" e frasi simili a queste e ti viene chiesto qualcosa senza specificare l'argomento da trattare, allora chiedimi l'argomento, l'età e la durata di quello che sto richiedendo.
 Rileva la lingua che viene utilizzata nelle domande ed utilizza la stessa lingua per rispondermi.
 Utilizza solo le informazioni che hai per rispondere alle domande e se non hai la risposta dimmi che non lo sai.
@@ -156,12 +178,6 @@ Dammi sempre il link che hai a disposizione associato alla risorsa didattica:
 'https://astroedu.iau.org/en/activities/measuring-an-exoplanet/',
 'https://astroedu.iau.org/en/activities/2410/cubic-planets/'
 
-Estrai i seguenti dettagli dal vectostore:
-- Età: specifica l'età o l'intervallo di età.
-- Livello: specifica il livello (es. base, intermedio, avanzato).
-- Durata: indica la durata se presente.
-
-Quando viene richiesta una attività specifica restituiscimi questi campi che hai estratto ossia l'età e il livello e la durata.
 Traduci la risposta nella stessa lingua della domanda.
 
 Context: {context}
@@ -194,11 +210,21 @@ st.markdown("I'm here to help you find and make the best use of educational mate
 
 # Funzione per ottenere la risposta dall'assistente AI
 def get_ai_response(question, chat_history):
-    response = rag_chain.invoke({
-        "chat_history": chat_history,
-        "input": question
-    })
-    return response['answer']
+    # Esegue la query al vectorstore
+    search_results = vectorstore.similarity_search(question)
+    
+    # Per ogni risultato, estrae i dettagli aggiuntivi usando il modello di linguaggio
+    results_with_details = []
+    for result in search_results:
+        details = extract_details_with_llm(result.page_content)
+        results_with_details.append(details)
+    
+    # Costruisce una risposta da mostrare all'utente
+    response_text = "Risultati trovati:\n"
+    for idx, details in enumerate(results_with_details, start=1):
+        response_text += f"Risultato {idx}:\n{details}\n\n"
+    
+    return response_text
 
 # Funzione per gestire l'invio dei messaggi tramite il campo di input della chat
 def chat_actions():
