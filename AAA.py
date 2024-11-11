@@ -48,8 +48,8 @@ def extract_details_with_llm(text, llm):
     response = llm(prompt)
     return response
 
-# Recupera tutti i documenti
-all_documents = vectorstore.get_all_documents()  # Metodo per recuperare tutti i documenti
+# Esegui una query generica per recuperare tutti i documenti
+all_documents = vectorstore.similarity_search(query="", k=110)  # Usa un valore alto per k se hai molti documenti
 
 # Passa i documenti al modello per estrarre i dettagli
 for document in all_documents:
