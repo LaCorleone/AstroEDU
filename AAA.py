@@ -197,7 +197,7 @@ Risposta strutturata:
 # Funzione per estrarre dettagli tramite il modello di linguaggio
 def extract_details_with_llm(text, llm):
     prompt = extract_details_prompt.format(text=text)
-    response = llm(prompt)
+    response = llm.call(prompt)  # Usa .call() per chiamare correttamente il modello
     return response
 
 # Funzione per estrarre dettagli dai documenti rilevanti
