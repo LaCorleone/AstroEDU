@@ -154,22 +154,14 @@ Dammi sempre il link che hai a disposizione associato alla risorsa didattica:
 'https://astroedu.iau.org/en/activities/2407/touching-the-stars/',
 'https://astroedu.iau.org/en/activities/2408/321-time-for-water-rockets/',
 'https://astroedu.iau.org/en/activities/measuring-an-exoplanet/',
-'https://astroedu.iau.org/en/activities/2410/cubic-planets/'.
+'https://astroedu.iau.org/en/activities/2410/cubic-planets/'
 
-Estrarre i seguenti dettagli dal testo:
+Estrai i seguenti dettagli dal vectostore:
 - Età: specifica l'età o l'intervallo di età.
 - Livello: specifica il livello (es. base, intermedio, avanzato).
 - Durata: indica la durata se presente.
 
-Testo:
-{text}
-
-Risposta strutturata:
-- Età: ...
-- Livello: ...
-- Durata: ...
-
-Quando viene richiesta una attività specifica restituiscimi anche l'età e il livello e la durata.
+Quando viene richiesta una attività specifica restituiscimi questi campi che hai estratto ossia l'età e il livello e la durata.
 Traduci la risposta nella stessa lingua della domanda.
 
 Context: {context}
