@@ -16,6 +16,8 @@ from langchain_core.messages import AIMessage, HumanMessage
 
 # Configura la tua logica di AI
 openai_api_key = os.getenv("OPENAI_API_KEY")
+if openai_api_key is None:
+    st.error("API key for OpenAI not found. Please set the OPENAI_API_KEY environment variable.")
 openai.api_key = openai_api_key
 embeddings = OpenAIEmbeddings(api_key=openai_api_key)
 
@@ -44,9 +46,13 @@ Risposta strutturata:
 
 # Funzione per estrarre dettagli con il modello di linguaggio
 def extract_details_with_llm(text):
-    prompt = extract_details_prompt.format(text=text)
-    response = llm(prompt)
-    return response
+    try:
+        prompt = extract_details_prompt.format(text=text)
+        response = llm(prompt)
+        return response
+    except Exception as e:
+        st.error(f"Errore durante l'estrazione dei dettagli: {e}")
+        return "Dettagli non disponibili"
 
 contextualize_q_system_prompt = """Given a chat history and the latest user question \
 which might reference context in the chat history, formulate a standalone question \
@@ -197,21 +203,30 @@ st.markdown("I'm here to help you find and make the best use of educational mate
 
 # Funzione per ottenere la risposta dall'assistente AI
 def get_ai_response(question, chat_history):
-    # Esegue la query al vectorstore
-    search_results = vectorstore.similarity_search(question)
-    
-    # Per ogni risultato, estrae i dettagli aggiuntivi usando il modello di linguaggio
-    results_with_details = []
-    for result in search_results:
-        details = extract_details_with_llm(result.page_content)
-        results_with_details.append(details)
-    
-    # Costruisce una risposta da mostrare all'utente
-    response_text = "Risultati trovati:\n"
-    for idx, details in enumerate(results_with_details, start=1):
-        response_text += f"Risultato {idx}:\n{details}\n\n"
-    
-    return response_text
+    try:
+        # Esegue la query al vectorstore
+        search_results = vectorstore.similarity_search(question)
+        
+        # Verifica se ci sono risultati
+        if not search_results:
+            st.warning("Nessun risultato trovato per la query.")
+            return "Nessun risultato trovato."
+        
+        # Per ogni risultato, estrae i dettagli aggiuntivi usando il modello di linguaggio
+        results_with_details = []
+        for result in search_results:
+            details = extract_details_with_llm(result.page_content)
+            results_with_details.append(details)
+        
+        # Costruisce una risposta da mostrare all'utente
+        response_text = "Risultati trovati:\n"
+        for idx, details in enumerate(results_with_details, start=1):
+            response_text += f"Risultato {idx}:\n{details}\n\n"
+        
+        return response_text
+    except Exception as e:
+        st.error(f"Errore durante la generazione della risposta: {e}")
+        return "Si è verificato un errore durante l'elaborazione della richiesta."
 
 # Funzione per gestire l'invio dei messaggi tramite il campo di input della chat
 def chat_actions():
