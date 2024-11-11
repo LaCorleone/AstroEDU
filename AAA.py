@@ -19,33 +19,12 @@ openai_api_key = os.getenv("OPENAI_API_KEY")
 openai.api_key = openai_api_key
 embeddings = OpenAIEmbeddings(api_key=openai_api_key)
 
-vectorstore = Chroma(embedding_function=embeddings,persist_directory="./chroma_db_final/chroma_db_final_new")
+vectorstore = Chroma(embedding_function=embeddings,persist_directory="./chroma_db_final/chroma_db_final")
 
 # Retrieve and generate using the relevant snippets of the blog.
 retriever = vectorstore.as_retriever()
 
-llm = ChatOpenAI(model_name="gpt-4o", temperature=0, openai_api_key=openai_api_key)
-
-# Prompt per estrarre dettagli specifici (età, livello, durata)
-extract_details_prompt = """
-Estrarre i seguenti dettagli dal testo:
-- Età: specifica l'età o l'intervallo di età.
-- Livello: specifica il livello (es. base, intermedio, avanzato).
-- Durata: indica la durata se presente.
-
-Testo:
-{text}
-
-Risposta strutturata:
-- Età: ...
-- Livello: ...
-- Durata: ...
-"""
-
-def extract_details_with_llm(text):
-    prompt = extract_details_prompt.format(text=text)
-    response = llm(prompt)
-    return response
+llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0, openai_api_key=openai_api_key)
 
 contextualize_q_system_prompt = """Given a chat history and the latest user question \
 which might reference context in the chat history, formulate a standalone question \
@@ -64,11 +43,9 @@ history_aware_retriever = create_history_aware_retriever(llm, retriever, context
 
 qa_system_prompt = """
 Comportati come un esperto in didattica. 
-
 Se la domanda è generica per esempio "consigliami qualche attività didattica da fare" oppure "cerco qualcosa" e frasi simili a queste e ti viene chiesto qualcosa senza specificare l'argomento da trattare, allora chiedimi l'argomento, l'età e la durata di quello che sto richiedendo.
 Rileva la lingua che viene utilizzata nelle domande ed utilizza la stessa lingua per rispondermi.
 Utilizza solo le informazioni che hai per rispondere alle domande e se non hai la risposta dimmi che non lo sai.
-
 Dammi sempre il link che hai a disposizione associato alla risorsa didattica:
 'https://astroedu.iau.org/en/activities/2403/find-the-hidden-rainbows/',
 'https://astroedu.iau.org/en/activities/2406/discover-earths-climate-with-a-balloon/',
@@ -125,7 +102,7 @@ Dammi sempre il link che hai a disposizione associato alla risorsa didattica:
 'https://astroedu.iau.org/en/activities/1645/navigation-in-the-ancient-mediterranean-and-beyond/',
 'https://astroedu.iau.org/en/activities/1703/the-4-point-backyard-diurnal-parallax-method/',
 'https://astroedu.iau.org/en/activities/1616/evening-sky-watching-for-students/',
-'https://astroedu.iau.org/en/activities/1535/street-lights-as-standard-candles/',
+'https://astroedu.iau.org/en/activity/street-lights-as-standard-candles/',
 'https://astroedu.iau.org/en/activities/1609/how-to-travel-on-earth-without-getting-lost/',
 'https://astroedu.iau.org/en/activities/1604/seasons-around-the-world/',
 'https://astroedu.iau.org/en/activities/1603/investigating-the-atmosphere-air-takes-up-space/',
@@ -142,9 +119,9 @@ Dammi sempre il link che hai a disposizione associato alla risorsa didattica:
 'https://astroedu.iau.org/en/activities/1608/making-a-sundial/',
 'https://astroedu.iau.org/en/activities/1607/what-is-a-constellation/',
 'https://astroedu.iau.org/en/activities/1606/what-is-time/',
-'https://astroedu.iau.org/en/activities/1605/day-and-night-in-the-world/',
+'https://astroedu.iau.org/en/activities/day-and-night-in-the-world/',
 'https://astroedu.iau.org/en/activities/1601/fizzy-balloons-co2-in-school/',
-'https://astroedu.iau.org/en/activities/1504/lunar-day/',
+'https://astroedu.iau.org/en/activities/lunar-day/',
 'https://astroedu.iau.org/en/activities/1501/how-many-stars-can-you-see-at-night/',
 'https://astroedu.iau.org/en/activities/1512/solar-system-model-on-a-city-map/',
 'https://astroedu.iau.org/en/activities/1503/suns-shadow/',
@@ -154,6 +131,7 @@ Dammi sempre il link che hai a disposizione associato alla risorsa didattica:
 'https://astroedu.iau.org/en/activities/1412/blue-marble-in-empty-space/',
 'https://astroedu.iau.org/en/activities/1411/the-fibre-optic-cable-class/',
 'https://astroedu.iau.org/en/activities/1406/meet-our-home-planet-earth/',
+'https://astroedu.iau.org/en/activities/1404/deadly-moons/',
 'https://astroedu.iau.org/en/activities/1408/meet-our-neighbours-moon/',
 'https://astroedu.iau.org/en/activities/1409/build-a-safe-sun-viewer/',
 'https://astroedu.iau.org/en/activities/1410/coma-cluster-of-galaxies/',
@@ -162,7 +140,7 @@ Dammi sempre il link che hai a disposizione associato alla risorsa didattica:
 'https://astroedu.iau.org/en/activities/1402/how-light-pollution-affects-the-stars-magnitude-readers/',
 'https://astroedu.iau.org/en/activities/1401/snakes-ladders-game/',
 'https://astroedu.iau.org/en/activities/1311/lunar-landscape/',
-'http://astroedu.iau.org/en/activities/1310/why-do-we-have-day-and-night/',
+'http://astroedu.iau.org/en/activities/why-do-we-have-day-and-night/',
 'https://astroedu.iau.org/en/activities/1308/meet-our-neighbours-sun/',
 'https://astroedu.iau.org/en/activities/1307/glitter-your-milky-way/',
 'https://astroedu.iau.org/en/activities/1306/star-in-a-box-advanced/',
@@ -170,19 +148,12 @@ Dammi sempre il link che hai a disposizione associato alla risorsa didattica:
 'https://astroedu.iau.org/en/activities/1305/measure-the-solar-diameter/',
 'https://astroedu.iau.org/en/activities/1302/star-in-a-box-high-school/',
 'https://astroedu.iau.org/en/activities/1304/model-of-a-black-hole/',
-'https://astroedu.iau.org/en/activities/1303/design-your-alien/',
-'https://astroedu.iau.org/en/activities/1407/levitating-astronaut/',
-'https://astroedu.iau.org/en/activities/1309/how-high-is-the-sky/',
-'https://astroedu.iau.org/en/activities/2407/touching-the-stars/',
-'https://astroedu.iau.org/en/activities/2408/321-time-for-water-rockets/',
-'https://astroedu.iau.org/en/activities/measuring-an-exoplanet/',
-'https://astroedu.iau.org/en/activities/2410/cubic-planets/'
-
+'https://astroedu.iau.org/en/activities/1303/design-your-alien/'.
+Quando viene richiesta una attività specifica restituiscimi anche l'età e il livello e la durata.
 Traduci la risposta nella stessa lingua della domanda.
 
 Context: {context}
-Answer:
-
+Answer: 
 """
 qa_prompt = ChatPromptTemplate.from_messages(
     [
@@ -201,7 +172,7 @@ rag_chain = create_retrieval_chain(history_aware_retriever, question_answer_chai
 #st.set_page_config(page_title="AstroEdu AI Assistant", layout="wide")
 
 # Intestazione
-#st.markdown("<h1 style='text-align: center; color: #0004ff;'>A.A.A.: AstroEdu AI Assistant</h1>", unsafe_allow_html=True)
+#st.markdown("<h1 style='text-align: center; color: #0004ff;'>Welcome to AstroEDU AI Assistant!</h1>", unsafe_allow_html=True)
 st.image("./LOGO2.webp", use_column_width=True) 
 
 # Sezione di Benvenuto
@@ -210,21 +181,11 @@ st.markdown("I'm here to help you find and make the best use of educational mate
 
 # Funzione per ottenere la risposta dall'assistente AI
 def get_ai_response(question, chat_history):
-    # Esegue la query al vectorstore
-    search_results = vectorstore.similarity_search(question)
-    
-    # Per ogni risultato, estrae i dettagli aggiuntivi usando il modello di linguaggio
-    results_with_details = []
-    for result in search_results:
-        details = extract_details_with_llm(result.page_content)
-        results_with_details.append(details)
-    
-    # Costruisce una risposta da mostrare all'utente
-    response_text = "Risultati trovati:\n"
-    for idx, details in enumerate(results_with_details, start=1):
-        response_text += f"Risultato {idx}:\n{details}\n\n"
-    
-    return response_text
+    response = rag_chain.invoke({
+        "chat_history": chat_history,
+        "input": question
+    })
+    return response['answer']
 
 # Funzione per gestire l'invio dei messaggi tramite il campo di input della chat
 def chat_actions():
