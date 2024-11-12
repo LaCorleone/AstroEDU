@@ -94,14 +94,14 @@ Di seguito i dettagli per ogni link con i campi da mettere nell'elenco puntato:
 'https://astroedu.iau.org/en/activities/1641/impact-craters/':10-16, Middle School Secondary, 1 hour, Plastic tray or bucket (at least 30 cm wide and 10 cm deep), Sand (enough to fill the container to a depth of at least 10 cm), Three rocks per group (weighing approximately 20g, 100g, and 200g), One rock weighing approximately 80g, Weighing scales, Ruler, Graph paper, Meter-long ruler, 30 cm ruler, Stand for holding the rulers (or tape to attach them vertically to the container), Projector/screen.
 'https://astroedu.iau.org/en/activities/1642/creating-asteroids/':4-10, Primary, 1 hour 30 minutes, Images of asteroids (e.g., Asteroid Ida and the Antiope Doublet), Clay (a handful per participant), Paint brushes, Paint, Table lining/protector.
 'https://astroedu.iau.org/en/activities/1644/childrens-planetary-maps-pluto-charon/':6-14, Primary Middle School, 2 hours, Map of Pluto and Charon for children (printed in large format or projected), Printed handouts, Printed worksheets. 
-'https://astroedu.iau.org/en/activities/1718/childrens-planetary-maps-titan/',
-'https://astroedu.iau.org/en/activities/1719/childrens-planetary-maps-io/',
-'https://astroedu.iau.org/en/activities/1720/childrens-planetary-maps-the-moon/',
-'https://astroedu.iau.org/en/activities/1721/childrens-planetary-maps-mars/',
-'https://astroedu.iau.org/en/activities/1722/childrens-planetary-maps-venus/',
-'https://astroedu.iau.org/en/activities/1645/navigation-in-the-ancient-mediterranean-and-beyond/',
-'https://astroedu.iau.org/en/activities/1703/the-4-point-backyard-diurnal-parallax-method/',
-'https://astroedu.iau.org/en/activities/1616/evening-sky-watching-for-students/',
+'https://astroedu.iau.org/en/activities/1718/childrens-planetary-maps-titan/':6-12,Middle School Primary, 2 hours, Map of Titan (printed in large format or projected), Printed handouts, Printed worksheets. 
+'https://astroedu.iau.org/en/activities/1719/childrens-planetary-maps-io/':6-14, Primary Middle School, 2 hours, Map of Io (printed in large format or projected), Printed handouts, Printed worksheets.
+'https://astroedu.iau.org/en/activities/1720/childrens-planetary-maps-the-moon/':6-14, Primary Middle School, 2 hours, Map of the Moon (printed in large format or projected), Printed handouts, Printed worksheets.
+'https://astroedu.iau.org/en/activities/1721/childrens-planetary-maps-mars/':6-14, Primary Middle School, 2 hours, Map of Mars (printed in large format or projected), Mars Worksheet, Mars Handout.
+'https://astroedu.iau.org/en/activities/1722/childrens-planetary-maps-venus/':6-14, Primary Middle School, 2 hours, Map of Venus (printed in large format or projected), Venus Handout, Venus Worksheet.
+'https://astroedu.iau.org/en/activities/1645/navigation-in-the-ancient-mediterranean-and-beyond/':14-19,Middle School Secondary, 1 hour 30 minutes, Worksheet, Pair of compasses, Pencil, Ruler, Calculator, Protractor, Computer with MS Excel installed, Excel spreadsheet (provided in the activity's attachments), Portable red lamp (e.g., dimmed torch or torch with red filter), Magnetic compass (if available).
+'https://astroedu.iau.org/en/activities/1703/the-4-point-backyard-diurnal-parallax-method/':16+, Secondary University, multiple days, Telescope (amateur-level, 8” or larger, polar-aligned, good clock-drive), CCD imager (preferably monochrome), PC (notebook), Planetarium software (e.g., C2A, SkyChart, Home Planet), CCD control software, Image-processing software (e.g., IRIS), Astrometric analysis software (e.g., X Parallax Viu, Astrometry.net), Spreadsheet, Time synchronization for CCD images (any Internet time service provider will do).
+'https://astroedu.iau.org/en/activities/1616/evening-sky-watching-for-students/':4-8, Pre-school Primary, 30 minutes, Good weather conditions, Classroom with a large window or access to a garden/playground with a clear view of the sky, Ability to switch off bright outdoor lights (if possible).
 'https://astroedu.iau.org/en/activity/street-lights-as-standard-candles/',
 'https://astroedu.iau.org/en/activities/1609/how-to-travel-on-earth-without-getting-lost/',
 'https://astroedu.iau.org/en/activities/1604/seasons-around-the-world/',
