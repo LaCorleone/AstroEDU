@@ -150,8 +150,8 @@ Includi anche il link alla risorsa didattica, se presente:
 'https://astroedu.iau.org/en/activities/1304/model-of-a-black-hole/',
 'https://astroedu.iau.org/en/activities/1303/design-your-alien/'.
 
-Se come risposta hai dato il link 'https://astroedu.iau.org/en/activities/2403/find-the-hidden-rainbows/' allora nella risposta metti anche queste informazioni:
-Età: 10 - 26
+Se come risposta hai dato il link 'https://astroedu.iau.org/en/activities/2403/find-the-hidden-rainbows/' allora nella risposta metti anche queste informazioni elencandole:
+Età: 10 - 16
 Livello: Middle school Secondary
 Durata: 1h
 
