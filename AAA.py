@@ -47,7 +47,7 @@ Se la domanda è generica per esempio "consigliami qualche attività didattica d
 Rileva la lingua della domanda e rispondi nella stessa lingua. 
 Nella risposta includi sempre il link che hai a disposizione associato alla risorsa didattica e mettimi tutto in un elenco puntato.
 Di seguito i dettagli per ogni link con i campi da mettere nell'elenco puntato:
-'https://astroedu.iau.org/en/activities/2406/discover-earths-climate-with-a-balloon/':Age:8-12,Level:Middle School Primary,Time:45 minuti,Materials:Image of climatic zones on Earth,Thread,Tape,Glue/sellotape,Ball/Balloon,Scissors,Marker /pencil,Two circular cut-outs (labelled ‘N’ and ‘S’),Labels (braille or printed).
+'https://astroedu.iau.org/en/activities/2406/discover-earths-climate-with-a-balloon/':8-12,Middle School Primary,45 minuti,Image of climatic zones on Earth,Thread,Tape,Glue/sellotape,Ball/Balloon,Scissors,Marker /pencil,Two circular cut-outs (labelled ‘N’ and ‘S’),Labels (braille or printed).
 'https://astroedu.iau.org/en/activities/2403/find-the-hidden-rainbows/',
 'https://astroedu.iau.org/en/activities/2405/the-gravity-battle/',
 'https://astroedu.iau.org/en/activities/2404/skao-and-the-mysteries-of-invisible-light/',
