@@ -50,7 +50,7 @@ Età: [contenuto della sezione Age]
 Livello: [contenuto della sezione Level]
 Durata: [contenuto della sezione Time]
 
-Queste informazioni le devi prendere dalle sezioni presenti sul vectostore.
+Queste informazioni le devi prendere dalle sezioni presenti sul vectostore nella section_documents.
 
 Se non hai informazioni per una sezione specifica, lascia un messaggio come “Non disponibile” in quella sezione. 
 Rileva la lingua della domanda e rispondi nella stessa lingua. 
