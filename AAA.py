@@ -107,11 +107,11 @@ Di seguito i dettagli per ogni link con i campi da mettere nell'elenco puntato:
 'https://astroedu.iau.org/en/activities/1604/seasons-around-the-world/':6-12, Primary Middle School, 45 minutes, 3 cocktail sticks (or stickers for marking locations on a ball), Pen for drawing on an orange, Torch, Orange (or a ball as an alternative).
 'https://astroedu.iau.org/en/activities/1603/investigating-the-atmosphere-air-takes-up-space/':6-10, Primary, 1 hour, Balloons, Plastic syringes (without needles) of two different sizes, Narrow straws, Plastic pipettes, Blu Tack, Bowl of water, Plastic or glass cup, Tissues.
 'https://astroedu.iau.org/en/activities/1602/continental-climate-and-oceanic-climate/':6-10, Primary, 45 minutes, 2 clear plastic cups, 2 thermometers, Water, Soil, Sunlight or a bright lamp, Red, yellow, green, and blue coloring pencils, Worksheet. 
-'https://astroedu.iau.org/en/activities/1617/create-your-own-astro-music/',
-'https://astroedu.iau.org/en/activities/1418/star-hats/',
-'https://astroedu.iau.org/en/activities/1413/build-your-own-artificial-satellite/',
-'https://astroedu.iau.org/en/activities/1615/know-your-planets/',
-'https://astroedu.iau.org/en/activities/1614/sun-earth-and-moon-model/',
+'https://astroedu.iau.org/en/activities/1617/create-your-own-astro-music/':8-19, Primary Middle School Secondary, 1 hour, One or more astronomical images, Method to display images (e.g., computer, projector, screen, or printouts), Musical instruments (e.g., drums, violins, flutes, trumpets, piano, tambourines, cymbals, shakers).
+'https://astroedu.iau.org/en/activities/1418/star-hats/':4-6, Pre-school Primary, 30 minutes, Scissors, Coloured paper, Thick coloured paper (cardboard), Markers, Glue, Stapler, Optional: glitter glue, stickers, paint, paintbrushes.
+'https://astroedu.iau.org/en/activities/1413/build-your-own-artificial-satellite/':8-10, Primary, 1 hour 30 minutes, Small carton, Toilet roll, Aluminium foil, Coloured paper, Iron wire, Skewers, Glue, Tape, Scissors, Plastic cups, Buttons or other decorative materials. 
+'https://astroedu.iau.org/en/activities/1615/know-your-planets/':4-10, Primary, 1 hour, Card game PDF (one set per group), Planets and Sun model (e.g., Universe in a Box or other materials), Coloured pencils (one set per group), Scissors (one per student), Photos of the Solar System PDF (one set per group).
+'https://astroedu.iau.org/en/activities/1614/sun-earth-and-moon-model/':8-10, Primary, 1 hour 30 minutes, Worksheet in PDF, A4 paper, Wooden skewer, Cocktail stick, Colouring pencils, Felt-tip pens or wax crayons, Scissors, String to attach cutouts to mobile, Sticky tape, Embroidery needles or paper punches (to share with the class), Stiff card to print memory game onto (per pair of students), One sheet of A2 paper (per class).
 'https://astroedu.iau.org/en/activities/1613/make-a-star-lantern/',
 'https://astroedu.iau.org/en/activities/1612/history-of-the-universe/',
 'https://astroedu.iau.org/en/activities/1611/living-in-the-milky-way/',
