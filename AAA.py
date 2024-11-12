@@ -149,6 +149,7 @@ Dammi sempre il link che hai a disposizione associato alla risorsa didattica che
 'https://astroedu.iau.org/en/activities/1302/star-in-a-box-high-school/',
 'https://astroedu.iau.org/en/activities/1304/model-of-a-black-hole/',
 'https://astroedu.iau.org/en/activities/1303/design-your-alien/'.
+Entra nel link e restituiscimi sempre età, livello e durata.
 
 Questi quattro link 
 'https://astroedu.iau.org/en/activities/meet-our-home-planet-earth/',
