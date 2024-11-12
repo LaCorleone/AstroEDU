@@ -42,7 +42,8 @@ contextualize_q_prompt = ChatPromptTemplate.from_messages(
 history_aware_retriever = create_history_aware_retriever(llm, retriever, contextualize_q_prompt)
 
 qa_system_prompt = """
-Comportati come un esperto in didattica e rispondi alle domande in modo preciso. 
+Comportati come un esperto in didattica.
+
 Se la domanda è generica per esempio "consigliami qualche attività didattica da fare" oppure "cerco qualcosa" e frasi simili a queste e ti viene chiesto qualcosa senza specificare l'argomento da trattare, allora chiedimi l'argomento, l'età e la durata di quello che sto richiedendo.
 Rileva la lingua della domanda e rispondi nella stessa lingua. 
 
@@ -150,13 +151,7 @@ Nella risposta includi sempre il link che hai a disposizione associato alla riso
 'https://astroedu.iau.org/en/activities/1304/model-of-a-black-hole/',
 'https://astroedu.iau.org/en/activities/1303/design-your-alien/'.
 
-Nella risposta inserisci sempre le sezioni:
-
-Tipo=età
-Tipo=livello
-Tipo=durata
-Tipo=sommario
-Tipo=materiali
+Nella risposta inserisci sempre le sezioni età, livello, durata, sommario, materiali presenti nel link.
 
 Questi quattro link 
 'https://astroedu.iau.org/en/activities/meet-our-home-planet-earth/',
