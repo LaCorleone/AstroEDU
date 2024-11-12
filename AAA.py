@@ -136,10 +136,10 @@ Di seguito i dettagli per ogni link con i campi da mettere nell'elenco puntato:
 'https://astroedu.iau.org/en/activities/1409/build-a-safe-sun-viewer/':6-12,Middle School Primary, 30 minutes, Cardboard box, White cardboard, Scissors, Tape, Aluminum foil. 
 'https://astroedu.iau.org/en/activities/1410/coma-cluster-of-galaxies/',???
 'https://astroedu.iau.org/en/activities/1404/deadly-moons/':6-12, Primary, 1 hour, Black paper, White paper, Soft pastels, Crayons, Felt-tip pens, Paint brushes, Pencils, PowerPoint slideshow. 
-'https://astroedu.iau.org/en/activities/1403/globe-at-night-activity-guide/',
-'https://astroedu.iau.org/en/activities/1402/how-light-pollution-affects-the-stars-magnitude-readers/',
-'https://astroedu.iau.org/en/activities/1401/snakes-ladders-game/',
-'https://astroedu.iau.org/en/activities/1311/lunar-landscape/',
+'https://astroedu.iau.org/en/activities/1403/globe-at-night-activity-guide/':4+, Primary Middle School Secondary, 30 minutes, Globe at Night Activity Packet (downloadable from the Globe at Night website), Something to write on, Something to write with, Red light to preserve night vision, Optional: Smart mobile device, GPS unit, or a topographic map to determine your latitude or longitude. 
+'https://astroedu.iau.org/en/activities/1402/how-light-pollution-affects-the-stars-magnitude-readers/':10-19, Middle School Secondary, 3-6 hours hour, Inkjet transparencies, Scissors, Index cards, Scotch tape, Coin (optional), Templates for transparencies.
+'https://astroedu.iau.org/en/activities/1401/snakes-ladders-game/':6-14, Primary Middle School, 30 minutes, Printed game board (A4 size for 4-6 students or 3x3 meters for larger groups), Dice, Tokens, Scissors, Glue, Object list.
+'https://astroedu.iau.org/en/activities/1311/lunar-landscape/':4-10, Primary, 45 minutes, Baking tin or similarly shaped large and deep container, Flour or white powder (enough to make a 1-2 inches deep layer), Cocoa or coloured powder, Sieve, Stones, large and small marbles, balls of different sizes, or any other items that can be used as projectiles, Ruler, Paper and pencil, Images of lunar craters. 
 'http://astroedu.iau.org/en/activities/why-do-we-have-day-and-night/',
 'https://astroedu.iau.org/en/activities/1308/meet-our-neighbours-sun/',
 'https://astroedu.iau.org/en/activities/1307/glitter-your-milky-way/',
