@@ -151,7 +151,7 @@ Nella risposta includi sempre il link che hai a disposizione associato alla riso
 'https://astroedu.iau.org/en/activities/1304/model-of-a-black-hole/',
 'https://astroedu.iau.org/en/activities/1303/design-your-alien/'.
 
-Se rispondi con questo link 'https://astroedu.iau.org/en/activities/2406/discover-earths-climate-with-a-balloon/' inserisci: Età: 8 - 12 anni,Livello: Middle School   Primary ,Durata: 45 minuti,Materiali:Image of climatic zones on Earth,Thread,Tape,Glue/sellotape,Ball/Balloon,Scissors,Marker /pencil,Two circular cut-outs (labelled ‘N’ and ‘S’),Labels (braille or printed).
+Se rispondi con questo link 'https://astroedu.iau.org/en/activities/2406/discover-earths-climate-with-a-balloon/' inserisci ad elenco puntato: Età: 8 - 12 anni,Livello: Middle School   Primary ,Durata: 45 minuti,Materiali:Image of climatic zones on Earth,Thread,Tape,Glue/sellotape,Ball/Balloon,Scissors,Marker /pencil,Two circular cut-outs (labelled ‘N’ and ‘S’),Labels (braille or printed).
 Restituiscimi insieme sempre un piccolo riassunto dell'attività.
 
 Questi quattro link 
