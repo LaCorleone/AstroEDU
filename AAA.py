@@ -26,41 +26,10 @@ retriever = vectorstore.as_retriever()
 
 llm = ChatOpenAI(model_name="gpt-4o", temperature=0, openai_api_key=openai_api_key)
 
-# Definisci il prompt per estrarre età, livello e durata
-extract_details_prompt = """
-Estrarre i seguenti dettagli dal testo:
-- Età: specifica l'età o l'intervallo di età.
-- Livello: specifica il livello (es. base, intermedio, avanzato).
-- Durata: indica la durata se presente.
-
-Testo:
-{text}
-
-Risposta strutturata:
-- Età: ...
-- Livello: ...
-- Durata: ...
-"""
-
-# Funzione per estrarre dettagli tramite il modello di linguaggio
-def extract_details_with_llm(text, llm):
-    prompt = extract_details_prompt.format(text=text)
-    response = llm(prompt)
-    return response
-
-# Esegui una query generica per recuperare tutti i documenti
-all_documents = vectorstore.similarity_search(query="", k=110)  # Usa un valore alto per k se hai molti documenti
-
-# Passa i documenti al modello per estrarre i dettagli
-for document in all_documents:
-    structured_response = extract_details_with_llm(document.page_content, llm)
-    
-
 contextualize_q_system_prompt = """Given a chat history and the latest user question \
 which might reference context in the chat history, formulate a standalone question \
 which can be understood without the chat history. Do NOT answer the question, \
 just reformulate it if needed and otherwise return it as is."""
-
 contextualize_q_prompt = ChatPromptTemplate.from_messages(
     [
         ("system", contextualize_q_system_prompt),
@@ -222,28 +191,11 @@ st.markdown("I'm here to help you find and make the best use of educational mate
 
 # Funzione per ottenere la risposta dall'assistente AI
 def get_ai_response(question, chat_history):
-    # Recupera i documenti rilevanti dal vectorstore
-    relevant_documents = retriever.retrieve(question)
-    
-    # Estrai dettagli dai documenti rilevanti
-    extracted_details = []
-    for doc in relevant_documents:
-        details = extract_details_with_llm(doc.page_content, llm)
-        extracted_details.append(details)
-    
-    # Crea una risposta iniziale utilizzando il retriever e la domanda
     response = rag_chain.invoke({
         "chat_history": chat_history,
         "input": question
     })
     return response['answer']
-    
-    # Formatta i dettagli estratti come stringa e aggiungili alla risposta
-    extracted_info_text = "\n".join([f"Documento {i+1}:\n{detail}" for i, detail in enumerate(extracted_details)])
-    full_response = f"{response}\n\nDettagli Estratti:\n{extracted_info_text}"
-    
-    return full_response
-
 
 # Funzione per gestire l'invio dei messaggi tramite il campo di input della chat
 def chat_actions():
