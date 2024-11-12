@@ -48,14 +48,14 @@ Rileva la lingua della domanda e rispondi nella stessa lingua.
 Nella risposta includi sempre il link che hai a disposizione associato alla risorsa didattica e mettimi tutto in un elenco puntato nel seguenti campi: link, età, livello,furata, materiali.
 Di seguito i dettagli per ogni link con i campi da mettere nell'elenco puntato:
 'https://astroedu.iau.org/en/activities/2406/discover-earths-climate-with-a-balloon/':8-12,Middle School Primary,45 minuti,Image of climatic zones on Earth,Thread,Tape,Glue/sellotape,Ball/Balloon,Scissors,Marker /pencil,Two circular cut-outs (labelled ‘N’ and ‘S’),Labels (braille or printed).
-'https://astroedu.iau.org/en/activities/2403/find-the-hidden-rainbows/',
-'https://astroedu.iau.org/en/activities/2405/the-gravity-battle/',
-'https://astroedu.iau.org/en/activities/2404/skao-and-the-mysteries-of-invisible-light/',
-'https://astroedu.iau.org/en/activities/2402/chasing-the-moon/',
-'https://astroedu.iau.org/en/activities/2401/the-sky-at-your-fingertips/',
-'https://astroedu.iau.org/en/activities/2312/light-play/',
-'https://astroedu.iau.org/en/activities/2304/can-you-find-the-exoplanet/',
-'https://astroedu.iau.org/en/activities/2307/how-do-telescopes-work/',
+'https://astroedu.iau.org/en/activities/2403/find-the-hidden-rainbows/':10-16, Middle School Secondary, 1 ora, Diffraction grating glasses (500 lines/mm), Various light sources (continuous emission like halogen or white LEDs, and line emission like fluorescent lamps), Power supply for light sources, Optional colored optical filters, Optional black background for spectrum observation.
+'https://astroedu.iau.org/en/activities/2405/the-gravity-battle/':8-19, Informal   Middle School   Primary   Secondary, 1 ora, Wooden cubes, Nails, Copper wire, Aluminum foil, Water containers, Shoe boxes, Magnets, Glue, Sheets of paper, Inclined plane (half painted).
+'https://astroedu.iau.org/en/activities/2404/skao-and-the-mysteries-of-invisible-light/':12-16, Informal   Middle School   Secondary, multiple days, Infrared camera, Black plastic bag, Radio Frequency (RF) detector, Spectrum analyser (optional), Parabolic microphone, Laser pointer, Optical fibre, Sound system with two input signals, Two mp3 players.
+'https://astroedu.iau.org/en/activities/2402/chasing-the-moon/':14-19, Middle School   Secondary, multiple days, Cross-staff, Star charts, Protractor or compass, Paper, Pen or pencil.
+'https://astroedu.iau.org/en/activities/2401/the-sky-at-your-fingertips/':10-14, Middle School  Primary, 2 hours, Stiff paper (A4, at least 200 g/m²), 40 cm ruler, Pen, Scalpel, Scissors, Adhesive tape, Cardboard, Cross-staff mask, Ruler mask.
+'https://astroedu.iau.org/en/activities/2312/light-play/':6-14, Primary Middle School  Primary, multiple days, Cardboard boxes (approx. 40x40x60 cm), Translucent paper (e.g., tracing paper), Adjustable clamp lamps, Assorted materials for shadow creation (e.g., graters, strainers, nets), Colored translucent materials (e.g., colored plastic bottles), Reflective materials (e.g., mirrors, aluminum foil), Hot glue gun and glue sticks, Wire cutters, Scissors, Utility knives, Tape, DC electric motors with gear reduction (4-6 RPM), Battery holders and suitable batteries, Alligator clips.
+'https://astroedu.iau.org/en/activities/2304/can-you-find-the-exoplanet/':14-19, Secondary, 3 hours, SalsaJ software, Computer with internet access, Spreadsheet software, Series of astronomical images (provided in the activity), Calculator, Pen and paper.
+'https://astroedu.iau.org/en/activities/2307/how-do-telescopes-work/':10-12, Primary, 1 hour, 10-15 magnifying glasses, 10-15 small mirrors, 3-4 laser pointers, Glass of water, Spoon, Cups of soap and/or juice.
 'https://astroedu.iau.org/en/activities/2306/orion-constellation-in-3d/',
 'https://astroedu.iau.org/en/activities/2308/the-sun-in-our-box/',
 'https://astroedu.iau.org/en/activities/2301/become-a-geo-detective/',
