@@ -187,19 +187,23 @@ question_answer_chain = create_stuff_documents_chain(llm, qa_prompt)
 
 rag_chain = create_retrieval_chain(history_aware_retriever, question_answer_chain)
 
-# Funzione per formattare la risposta includendo sempre le sezioni richieste
-def format_response_with_sections(response, url):
-    # Sezioni obbligatorie con valore di default "Non disponibile"
+def format_response_with_sections(response_text, url):
+    # Inizializza le sezioni con valore di default "Non disponibile"
     sections = {
         "Età": "Non disponibile",
         "Livello": "Non disponibile",
         "Durata": "Non disponibile"
     }
     
-    # Aggiorna con le informazioni fornite nella risposta, se disponibili
-    sections.update(response)
+    # Cerca le informazioni sulle sezioni nella stringa `response_text`
+    if "Età:" in response_text:
+        sections["Età"] = response_text.split("Età:")[1].split("\n")[0].strip()
+    if "Livello:" in response_text:
+        sections["Livello"] = response_text.split("Livello:")[1].split("\n")[0].strip()
+    if "Durata:" in response_text:
+        sections["Durata"] = response_text.split("Durata:")[1].split("\n")[0].strip()
     
-    # Formatta la risposta con tutte le sezioni e il link
+    # Formatta la risposta finale
     formatted_response = f"""
     Età: {sections['Età']}
     Livello: {sections['Livello']}
@@ -207,6 +211,7 @@ def format_response_with_sections(response, url):
     Link: {url}
     """
     return formatted_response
+
 
 # Funzione per ottenere la risposta dall'assistente AI
 def get_ai_response(question, chat_history):
