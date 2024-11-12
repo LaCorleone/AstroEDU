@@ -144,11 +144,11 @@ Di seguito i dettagli per ogni link con i campi da mettere nell'elenco puntato:
 'https://astroedu.iau.org/en/activities/1308/meet-our-neighbours-sun/':6-12, Primary, 1 hour, Printed copies of Sun_Mold and Sun_Features PDFs, Flat black sequins (for sunspots), Yellow thread or wool (for solar prominence and outline), Fabric with granular texture (e.g., bubble wrap or netting) (for surface of the Sun).
 'https://astroedu.iau.org/en/activities/1307/glitter-your-milky-way/':6-10, Primary, 45 minutes, Glitter (white, silver, blue), Glitter glue (deep blue), Small white rhinestones (self-adhesive), Acrylic craft paint (black, blue, white), Foamies glitter art sheets (optional), Dark blue poster board, Medium art paintbrush, Wide art paintbrush, Old toothbrush, Elmer's glue (dries clear). 
 'https://astroedu.iau.org/en/activities/1306/star-in-a-box-advanced/':14+, Secondary, 45 minutes, Computer with internet access, Star in a Box worksheets. 
-'https://astroedu.iau.org/en/activities/1301/counting-sunspots/',
-'https://astroedu.iau.org/en/activities/1305/measure-the-solar-diameter/',
-'https://astroedu.iau.org/en/activities/1302/star-in-a-box-high-school/',
-'https://astroedu.iau.org/en/activities/1304/model-of-a-black-hole/',
-'https://astroedu.iau.org/en/activities/1303/design-your-alien/'.
+'https://astroedu.iau.org/en/activities/1301/counting-sunspots/':16-19, Secondary, 1 hour, Computer with internet access, Excel file for counting sunspots, Spectroheliograms data file, Files in attachment: Counting Sunspots, Appendix, and Excel file.
+'https://astroedu.iau.org/en/activities/1305/measure-the-solar-diameter/':12+,Middle School Secondary, 1 hour, Small mirror (5–20 cm), Thick paper or card, Tripod or lump of Plasticine/playdough, Screen (A4 or A3 white paper with cardboard backing), Pencil or marker pen, Masking/electrical/duct tape, Stopwatch.
+'https://astroedu.iau.org/en/activities/1302/star-in-a-box-high-school/':12-19,Middle School Secondary, 45 minutes, Computer with internet access, Star in a Box worksheets.
+'https://astroedu.iau.org/en/activities/1304/model-of-a-black-hole/':8-12, Primary, 1 hour, Light elastic bandage (e.g., Tubifix), Small marble, Heavy ball (e.g., boules, bocce, or pétanque ball). 
+'https://astroedu.iau.org/en/activities/1303/design-your-alien/':8-12, Primary, 2 hours, Crayons, Paper, Printed copy of Design Your Alien script (optional), Design Your Alien presentation (optional)
 
 Quando mi dai come risposta uno di questi link mettimi sempre un riassunto della risorsa didattica in questione dopo l'elenco puntato.
 
