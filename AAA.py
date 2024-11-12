@@ -42,12 +42,17 @@ contextualize_q_prompt = ChatPromptTemplate.from_messages(
 history_aware_retriever = create_history_aware_retriever(llm, retriever, contextualize_q_prompt)
 
 qa_system_prompt = """
-Comportati come un esperto in didattica e rispondimi nella maniera più precisa possibile. 
-Se la domanda è generica per esempio "consigliami qualche attività didattica da fare" oppure "cerco qualcosa" e frasi simili a queste e ti viene chiesto qualcosa senza specificare l'argomento da trattare, allora chiedimi l'argomento, l'età e la durata di quello che sto richiedendo.
-Rileva la lingua che viene utilizzata nelle domande ed utilizza la stessa lingua per rispondermi.
-Utilizza solo le informazioni che hai per rispondere alle domande e se non hai la risposta dimmi che non lo sai e non inventarti nulla.
-Ad ogni tua risposta restituiscimi SEMPRE le sezioni età, livello e durata che sono presenti nel vectordb.
-Dammi sempre il link che hai a disposizione associato alla risorsa didattica che mi hai consigliato nella risposta:
+Comportati come un esperto in didattica e rispondi alle domande in modo preciso. 
+Includi sempre nelle tue risposte le sezioni “Età,” “Livello,” e “Durata,” anche quando 
+non sono direttamente menzionate nella domanda. Formatta la risposta come segue:
+
+Età: [contenuto della sezione Age]
+Livello: [contenuto della sezione Level]
+Durata: [contenuto della sezione Time]
+
+Se non hai informazioni per una sezione specifica, lascia un messaggio come “Non disponibile” in quella sezione. 
+Rileva la lingua della domanda e rispondi nella stessa lingua. 
+Includi anche il link alla risorsa didattica, se presente:
 'https://astroedu.iau.org/en/activities/2403/find-the-hidden-rainbows/',
 'https://astroedu.iau.org/en/activities/2406/discover-earths-climate-with-a-balloon/',
 'https://astroedu.iau.org/en/activities/2405/the-gravity-battle/',
@@ -179,16 +184,26 @@ question_answer_chain = create_stuff_documents_chain(llm, qa_prompt)
 
 rag_chain = create_retrieval_chain(history_aware_retriever, question_answer_chain)
 
-# Configura la pagina
-#st.set_page_config(page_title="AstroEdu AI Assistant", layout="wide")
-
-# Intestazione
-#st.markdown("<h1 style='text-align: center; color: #0004ff;'>Welcome to AstroEDU AI Assistant!</h1>", unsafe_allow_html=True)
-st.image("./LOGO2.webp", use_column_width=True) 
-
-# Sezione di Benvenuto
-st.markdown("<h2 style='color: #FFA500;'>Welcome to AstroEDU AI Assistant!</h2>", unsafe_allow_html=True)
-st.markdown("I'm here to help you find and make the best use of educational materials from AstroEDU.<br>How can I assist you? If you want, speak to me in your language!", unsafe_allow_html=True)
+# Funzione per formattare la risposta includendo sempre le sezioni richieste
+def format_response_with_sections(response, url):
+    # Sezioni obbligatorie con valore di default "Non disponibile"
+    sections = {
+        "Età": "Non disponibile",
+        "Livello": "Non disponibile",
+        "Durata": "Non disponibile"
+    }
+    
+    # Aggiorna con le informazioni fornite nella risposta, se disponibili
+    sections.update(response)
+    
+    # Formatta la risposta con tutte le sezioni e il link
+    formatted_response = f"""
+    Età: {sections['Età']}
+    Livello: {sections['Livello']}
+    Durata: {sections['Durata']}
+    Link: {url}
+    """
+    return formatted_response
 
 # Funzione per ottenere la risposta dall'assistente AI
 def get_ai_response(question, chat_history):
@@ -196,7 +211,9 @@ def get_ai_response(question, chat_history):
         "chat_history": chat_history,
         "input": question
     })
-    return response['answer']
+    # Formatta la risposta per includere sempre le sezioni
+    url = response.get("url", "URL non disponibile")
+    return format_response_with_sections(response['answer'], url)
 
 # Funzione per gestire l'invio dei messaggi tramite il campo di input della chat
 def chat_actions():
@@ -208,10 +225,14 @@ def chat_actions():
     
     st.session_state["chat_history"].append({"role": "assistant", "content": ai_response})
 
-
 # Inizializza la cronologia della chat se non esiste
 if "chat_history" not in st.session_state:
     st.session_state["chat_history"] = []
+
+# Interfaccia Streamlit
+st.image("./LOGO2.webp", use_column_width=True) 
+st.markdown("<h2 style='color: #FFA500;'>Welcome to AstroEDU AI Assistant!</h2>", unsafe_allow_html=True)
+st.markdown("I'm here to help you find and make the best use of educational materials from AstroEDU.<br>How can I assist you? If you want, speak to me in your language!", unsafe_allow_html=True)
 
 # Campo di input per i messaggi della chat
 st.chat_input("Enter your message", on_submit=chat_actions, key="chat_input")
