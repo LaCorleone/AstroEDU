@@ -124,18 +124,18 @@ Di seguito i dettagli per ogni link con i campi da mettere nell'elenco puntato:
 'https://astroedu.iau.org/en/activities/lunar-day/':4-8, Primary, 30 minutes, Two paper plates (10 inches – 25.4 cm), A4 printouts of the Moon and the Earth, Scissors, Glue, Elastic bands, Access to Internet.
 'https://astroedu.iau.org/en/activities/1501/how-many-stars-can-you-see-at-night/':12-14, Middle School, 45 minutes, Worksheet (in PDF or DOC format), Foldable Mini-Spectrometer (in PDF format), Black cardboard, CD, Scissors, Smartphone, Glue, Black adhesive tape, Access to Google Drive, Stellarium software, Computer, Data projector. 
 'https://astroedu.iau.org/en/activities/1512/solar-system-model-on-a-city-map/':12-16,Middle School Secondary, 2 hours, City map, Pencil, Ball (~200 mm), Pinhead (~0.8 mm), Peppercorns (~2 mm), Poppy seed (~1 mm), Chestnut (~22 mm), Hazelnut (~18 mm), Peanuts (~8 mm), Sand grain (~0.6 mm), Optional: aluminum foil or play dough, Metric ruler, Calculator, Student Worksheet, Compass (optional).
-'https://astroedu.iau.org/en/activities/1503/suns-shadow/',
-'https://astroedu.iau.org/en/activities/1505/solar-system-model/',
-'https://astroedu.iau.org/en/activities/1502/lets-break-the-particles/',
-'https://astroedu.iau.org/en/activities/1414/astropoetry-writing/',
-'https://astroedu.iau.org/en/activities/1412/blue-marble-in-empty-space/',
-'https://astroedu.iau.org/en/activities/1411/the-fibre-optic-cable-class/',
-'https://astroedu.iau.org/en/activities/1406/meet-our-home-planet-earth/',
-'https://astroedu.iau.org/en/activities/1404/deadly-moons/',
-'https://astroedu.iau.org/en/activities/1408/meet-our-neighbours-moon/',
-'https://astroedu.iau.org/en/activities/1409/build-a-safe-sun-viewer/',
-'https://astroedu.iau.org/en/activities/1410/coma-cluster-of-galaxies/',
-'https://astroedu.iau.org/en/activities/1404/deadly-moons/',
+'https://astroedu.iau.org/en/activities/1503/suns-shadow/':6-16, Primary Middle School Secondary, 1 day, Opaque objects (e.g., building, tree, person, stick), Paper (standard size, A1 or A0), Marker, Measuring tape, Rulers, Earth globe (or ball to represent the Earth), Flashlight. 
+'https://astroedu.iau.org/en/activities/1505/solar-system-model/':4-10, Primary, 30 minutes, Plastic balls of various sizes, Paint and brushes, Images of planets, Clay or papier-mâché, Cotton. 
+'https://astroedu.iau.org/en/activities/1502/lets-break-the-particles/':8-14, Primary Middle School, 1 hour 30 minutes, Plastic tubes (used by electricians), Glass marbles, Steel marbles, Adhesive putty (e.g., Patafix, Blu Tac), Hot glue, Magnets. 
+'https://astroedu.iau.org/en/activities/1414/astropoetry-writing/':6-14, Primary Middle School, 1 hour 30 minutes, Pen or pencil, Notepad, Sky chart (printable or smartphone app), Stellarium software (optional). 
+'https://astroedu.iau.org/en/activities/1412/blue-marble-in-empty-space/',????
+'https://astroedu.iau.org/en/activities/1411/the-fibre-optic-cable-class/':12-19,Middle School Secondary, 1 hour, Ball or container (capable of containing a small note or item), Note from the teacher (or other fun thing to put in the ball, i.e. a small toy), Multiple mirrors (one for all students), Laser Pointer, Clear, plastic cord (that internally reflect laser light so it comes out the other end) or a length of fibre optic cable, Fibre optic lamp, Laser Safety Glasses (recommended), Laser Radio Communicator (optional).
+'https://astroedu.iau.org/en/activities/1406/meet-our-home-planet-earth/':6-12, Primary, 1 hour 30 minutes, Thin wire (for hurricane feature), Cotton (for clouds and hurricane), Aluminium foil (for polar caps), Thick fabric (for continents), Plastic (for liquid water), Glue, Scissors, Pen, Earth Features PDF (print out attachment), Earth Mold PDF (print out two copies of attachment). 
+'https://astroedu.iau.org/en/activities/1404/deadly-moons/':6-12, Primary, 1 hour, Black paper, White paper, Soft pastels, Crayons, Felt-tip pens, Paint brushes, Pencils, PowerPoint slideshow. 
+'https://astroedu.iau.org/en/activities/1408/meet-our-neighbours-moon/':6-12, Primary, 2 hours, Grey felt (for Moon surface), Thick fabric (for mountains), Thin fabric (for mare features), Curved sequins (for craters), Glue, Pen, Scissors, Moon Features PDF, Moon Featureless PDF (two copies).
+'https://astroedu.iau.org/en/activities/1409/build-a-safe-sun-viewer/':6-12,Middle School Primary, 30 minutes, Cardboard box, White cardboard, Scissors, Tape, Aluminum foil. 
+'https://astroedu.iau.org/en/activities/1410/coma-cluster-of-galaxies/',???
+'https://astroedu.iau.org/en/activities/1404/deadly-moons/':6-12, Primary, 1 hour, Black paper, White paper, Soft pastels, Crayons, Felt-tip pens, Paint brushes, Pencils, PowerPoint slideshow. 
 'https://astroedu.iau.org/en/activities/1403/globe-at-night-activity-guide/',
 'https://astroedu.iau.org/en/activities/1402/how-light-pollution-affects-the-stars-magnitude-readers/',
 'https://astroedu.iau.org/en/activities/1401/snakes-ladders-game/',
