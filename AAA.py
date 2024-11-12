@@ -114,16 +114,16 @@ Di seguito i dettagli per ogni link con i campi da mettere nell'elenco puntato:
 'https://astroedu.iau.org/en/activities/1614/sun-earth-and-moon-model/':8-10, Primary, 1 hour 30 minutes, Worksheet in PDF, A4 paper, Wooden skewer, Cocktail stick, Colouring pencils, Felt-tip pens or wax crayons, Scissors, String to attach cutouts to mobile, Sticky tape, Embroidery needles or paper punches (to share with the class), Stiff card to print memory game onto (per pair of students), One sheet of A2 paper (per class).
 'https://astroedu.iau.org/en/activities/1613/make-a-star-lantern/':6-10, Primary, 1 hour 30 minutes, Worksheet (PDF), Coloured A3 card sheet (one per student), Lantern lights (one per student), Embroidery needles, Newspaper, Sticks to hold the lantern (one per student), Crepe paper and tissue paper in different colours, Brushes, A4 paper or printed sky maps, Luminous paint (or normal paint), Glue, Stapler, String, Camera (optional).
 'https://astroedu.iau.org/en/activities/1612/history-of-the-universe/':8-14, Primary Middle School, 1 hour 30 minutes, Craft paper, Calculator or squared paper, Scissors, Glue, Colouring pencils or other colouring mediums (e.g., watercolours, pens, paint), 12 A4 sheets of plain or coloured paper, 1 coloured A4 sheet for the clock.
-'https://astroedu.iau.org/en/activities/1611/living-in-the-milky-way/',
-'https://astroedu.iau.org/en/activities/1610/lets-map-the-earth/',
-'https://astroedu.iau.org/en/activities/1608/making-a-sundial/',
-'https://astroedu.iau.org/en/activities/1607/what-is-a-constellation/',
-'https://astroedu.iau.org/en/activities/1606/what-is-time/',
-'https://astroedu.iau.org/en/activities/day-and-night-in-the-world/',
-'https://astroedu.iau.org/en/activities/1601/fizzy-balloons-co2-in-school/',
-'https://astroedu.iau.org/en/activities/lunar-day/',
-'https://astroedu.iau.org/en/activities/1501/how-many-stars-can-you-see-at-night/',
-'https://astroedu.iau.org/en/activities/1512/solar-system-model-on-a-city-map/',
+'https://astroedu.iau.org/en/activities/1611/living-in-the-milky-way/':6-10, Primary, 1 hour 30 minutes, Worksheet in PDF, Black A4 card sheet, Drawing compass, Scissors, White and red paint, Paintbrushes, Cotton wool, Glue, Red clay, 5 cocktail sticks, Fishing line. 
+'https://astroedu.iau.org/en/activities/1610/lets-map-the-earth/':8-14, Primary Middle School, 1 hour, Aerial photograph of the city, Tracing paper, Ruler, Optional: calculator, 10 blank stickers or labels, World map, Pencils.
+'https://astroedu.iau.org/en/activities/1608/making-a-sundial/':6-14, Primary Middle School, 1 hour, 12 large stones, Scissors, Glue, 150-centimetre long stick, Large protractor, Marker pen, Compass, Printed Sundial Worksheet PDF per student.
+'https://astroedu.iau.org/en/activities/1607/what-is-a-constellation/',???????????
+'https://astroedu.iau.org/en/activities/1606/what-is-time/':6-12, Primary Middle School, 1 hour, Two small light bottles of the same size, Stopwatch, A piece of cardboard slightly larger than the mouth of the bottle, Scissors, Sticky tape, Sand (enough to nearly fill a bottle), Worksheet printout, Pencil.
+'https://astroedu.iau.org/en/activities/day-and-night-in-the-world/':6-10, Primary, 1 hour, Photographs of diurnal and nocturnal animals, Worksheet, 24 split pins, 2 cocktail sticks, Torch, Orange, Scissors, A4 paper, Thick paper, Colouring pencils, Embroidery needles.
+'https://astroedu.iau.org/en/activities/1601/fizzy-balloons-co2-in-school/':8-14, Middle School Primary, 2 hours, Balloons, Funnel, Effervescent tablets (e.g., vitamin C tablets) or baking powder, Transparent 500 ml bottle, Water, Beakers, Tea light candle, Matches, Pair of tongs (or a wooden skewer), Lime water (prepared by mixing a spoonful of cement or mortar with about 250 ml water, letting the suspension settle, then filtering it using two paper coffee filters), Thick drinking straw.
+'https://astroedu.iau.org/en/activities/lunar-day/':4-8, Primary, 30 minutes, Two paper plates (10 inches – 25.4 cm), A4 printouts of the Moon and the Earth, Scissors, Glue, Elastic bands, Access to Internet.
+'https://astroedu.iau.org/en/activities/1501/how-many-stars-can-you-see-at-night/':12-14, Middle School, 45 minutes, Worksheet (in PDF or DOC format), Foldable Mini-Spectrometer (in PDF format), Black cardboard, CD, Scissors, Smartphone, Glue, Black adhesive tape, Access to Google Drive, Stellarium software, Computer, Data projector. 
+'https://astroedu.iau.org/en/activities/1512/solar-system-model-on-a-city-map/':12-16,Middle School Secondary, 2 hours, City map, Pencil, Ball (~200 mm), Pinhead (~0.8 mm), Peppercorns (~2 mm), Poppy seed (~1 mm), Chestnut (~22 mm), Hazelnut (~18 mm), Peanuts (~8 mm), Sand grain (~0.6 mm), Optional: aluminum foil or play dough, Metric ruler, Calculator, Student Worksheet, Compass (optional).
 'https://astroedu.iau.org/en/activities/1503/suns-shadow/',
 'https://astroedu.iau.org/en/activities/1505/solar-system-model/',
 'https://astroedu.iau.org/en/activities/1502/lets-break-the-particles/',
