@@ -172,7 +172,8 @@ argomento di questi link, allora rispondimi che non hai attività per quell'argo
 Traduci la risposta nella stessa lingua della domanda.
 
 Context: {context}
-Answer: 
+Answer:
+
 """
 qa_prompt = ChatPromptTemplate.from_messages(
     [
@@ -187,31 +188,16 @@ question_answer_chain = create_stuff_documents_chain(llm, qa_prompt)
 
 rag_chain = create_retrieval_chain(history_aware_retriever, question_answer_chain)
 
-def format_response_with_sections(response_text, url):
-    # Inizializza le sezioni con valore di default "Non disponibile"
-    sections = {
-        "Età": "Non disponibile",
-        "Livello": "Non disponibile",
-        "Durata": "Non disponibile"
-    }
-    
-    # Cerca le informazioni sulle sezioni nella stringa `response_text`
-    if "Età:" in response_text:
-        sections["Età"] = response_text.split("Età:")[1].split("\n")[0].strip()
-    if "Livello:" in response_text:
-        sections["Livello"] = response_text.split("Livello:")[1].split("\n")[0].strip()
-    if "Durata:" in response_text:
-        sections["Durata"] = response_text.split("Durata:")[1].split("\n")[0].strip()
-    
-    # Formatta la risposta finale
-    formatted_response = f"""
-    Età: {sections['Età']}
-    Livello: {sections['Livello']}
-    Durata: {sections['Durata']}
-    Link: {url}
-    """
-    return formatted_response
+# Configura la pagina
+#st.set_page_config(page_title="AstroEdu AI Assistant", layout="wide")
 
+# Intestazione
+#st.markdown("<h1 style='text-align: center; color: #0004ff;'>Welcome to AstroEDU AI Assistant!</h1>", unsafe_allow_html=True)
+st.image("./LOGO2.webp", use_column_width=True) 
+
+# Sezione di Benvenuto
+st.markdown("<h2 style='color: #FFA500;'>Welcome to AstroEDU AI Assistant!</h2>", unsafe_allow_html=True)
+st.markdown("I'm here to help you find and make the best use of educational materials from AstroEDU.<br>How can I assist you? If you want, speak to me in your language!", unsafe_allow_html=True)
 
 # Funzione per ottenere la risposta dall'assistente AI
 def get_ai_response(question, chat_history):
@@ -219,9 +205,7 @@ def get_ai_response(question, chat_history):
         "chat_history": chat_history,
         "input": question
     })
-    # Formatta la risposta per includere sempre le sezioni
-    url = response.get("url", "URL non disponibile")
-    return format_response_with_sections(response['answer'], url)
+    return response['answer']
 
 # Funzione per gestire l'invio dei messaggi tramite il campo di input della chat
 def chat_actions():
@@ -233,14 +217,10 @@ def chat_actions():
     
     st.session_state["chat_history"].append({"role": "assistant", "content": ai_response})
 
+
 # Inizializza la cronologia della chat se non esiste
 if "chat_history" not in st.session_state:
     st.session_state["chat_history"] = []
-
-# Interfaccia Streamlit
-st.image("./LOGO2.webp", use_column_width=True) 
-st.markdown("<h2 style='color: #FFA500;'>Welcome to AstroEDU AI Assistant!</h2>", unsafe_allow_html=True)
-st.markdown("I'm here to help you find and make the best use of educational materials from AstroEDU.<br>How can I assist you? If you want, speak to me in your language!", unsafe_allow_html=True)
 
 # Campo di input per i messaggi della chat
 st.chat_input("Enter your message", on_submit=chat_actions, key="chat_input")
@@ -248,4 +228,4 @@ st.chat_input("Enter your message", on_submit=chat_actions, key="chat_input")
 # Visualizza la cronologia dei messaggi della chat
 for i in st.session_state["chat_history"]:
     with st.chat_message(name=i["role"]):
-        st.write(i["content"])
+        st.write(i["content"])     
