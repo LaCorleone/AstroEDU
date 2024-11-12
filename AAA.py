@@ -150,11 +150,13 @@ Nella risposta includi sempre il link che hai a disposizione associato alla riso
 'https://astroedu.iau.org/en/activities/1304/model-of-a-black-hole/',
 'https://astroedu.iau.org/en/activities/1303/design-your-alien/'.
 
-Se come risposta hai dato il link 'https://astroedu.iau.org/en/activities/2403/find-the-hidden-rainbows/' allora nella risposta metti anche queste informazioni elencandole:
-Età: 10 - 16
-Livello: Middle school Secondary
-Durata: 1h
+Nella risposta inserisci sempre le sezioni:
 
+Tipo=età
+Tipo=livello
+Tipo=durata
+Tipo=sommario
+Tipo=materiali
 
 Questi quattro link 
 'https://astroedu.iau.org/en/activities/meet-our-home-planet-earth/',
