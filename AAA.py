@@ -56,20 +56,20 @@ Di seguito i dettagli per ogni link con i campi da mettere nell'elenco puntato:
 'https://astroedu.iau.org/en/activities/2312/light-play/':6-14, Primary Middle School  Primary, multiple days, Cardboard boxes (approx. 40x40x60 cm), Translucent paper (e.g., tracing paper), Adjustable clamp lamps, Assorted materials for shadow creation (e.g., graters, strainers, nets), Colored translucent materials (e.g., colored plastic bottles), Reflective materials (e.g., mirrors, aluminum foil), Hot glue gun and glue sticks, Wire cutters, Scissors, Utility knives, Tape, DC electric motors with gear reduction (4-6 RPM), Battery holders and suitable batteries, Alligator clips.
 'https://astroedu.iau.org/en/activities/2304/can-you-find-the-exoplanet/':14-19, Secondary, 3 hours, SalsaJ software, Computer with internet access, Spreadsheet software, Series of astronomical images (provided in the activity), Calculator, Pen and paper.
 'https://astroedu.iau.org/en/activities/2307/how-do-telescopes-work/':10-12, Primary, 1 hour, 10-15 magnifying glasses, 10-15 small mirrors, 3-4 laser pointers, Glass of water, Spoon, Cups of soap and/or juice.
-'https://astroedu.iau.org/en/activities/2306/orion-constellation-in-3d/',
-'https://astroedu.iau.org/en/activities/2308/the-sun-in-our-box/',
-'https://astroedu.iau.org/en/activities/2301/become-a-geo-detective/',
-'https://astroedu.iau.org/en/activities/2302/light-in-a-matchbox/',
-'https://astroedu.iau.org/en/activities/2305/let-there-be-light-but-not-too-much/',
-'https://astroedu.iau.org/en/activities/2303/moving-constellations/',
-'https://astroedu.iau.org/en/activity/2205/age-that-crater/',
-'https://astroedu.iau.org/en/activities/2203/lets-play-with-powers-of-10/',
-'https://astroedu.iau.org/en/activities/2002/misurare-la-velocita-media-di-una-cometa/',
-'https://astroedu.iau.org/en/activities/2202/make-your-own-sun/',
-'https://astroedu.iau.org/en/activities/2201/hunting-for-spectra/',
-'https://astroedu.iau.org/en/activities/2001/driving-on-mars/',
-'https://astroedu.iau.org/en/activities/2103/is-the-sun-rotating-follow-the-sunspots/',
-'https://astroedu.iau.org/en/activities/2102/reading-the-rainbow/',
+'https://astroedu.iau.org/en/activities/2306/orion-constellation-in-3d/':8-12, Primary, 2 hours, Styrofoam board (slightly larger than A4 size, 1-3 cm thick), 10 wooden skewers (20-30 cm long), Modeling clay (white, blue, light blue, orange, red), Ruler, Meter, Scissors or cutter, Tape or glue.
+'https://astroedu.iau.org/en/activities/2308/the-sun-in-our-box/':10-14, Middle School, 3 hours, 3-4 sheets of colored cardboard (45 x 65 cm), Aluminum foil or cardboard, Wax paper, Ruler, Meter stick, Pin or needle, Pen, Tape, Scissors, Utility knife (for older students), A4 paper.
+'https://astroedu.iau.org/en/activities/2301/become-a-geo-detective/':12-16, Middle School Secondary, 2 hours, Introduction video, Presentation slides (Introduction.ppt), Handout without solutions (Handout-without-solutions.pdf), Handout with solutions (Handout-with-solutions.pdf), Color markers.
+'https://astroedu.iau.org/en/activities/2302/light-in-a-matchbox/': 8-14, Primary Middle School, 1 hour 30 minutes, Matchbox (or similar small box), Black marker or black paint with brush, Cutting blade, Glue, Paper and colored pencils, CD or DVD.
+'https://astroedu.iau.org/en/activities/2305/let-there-be-light-but-not-too-much/':6-12, Primary, 2 hours, Wooden board for the ground, Wooden board for the night sky, Blue paint, LED lights (e.g., Christmas tree lights), Black sandpaper, Reflective paper, Various lighting designs (as shown in the activity's images), Optional: printed card game for evaluation.
+'https://astroedu.iau.org/en/activities/2303/moving-constellations/':10+, Middle School Secondary, 3 hours, Computer, Stellarium software, Presentation software (e.g., PowerPoint, Keynote), Introduction presentation about Ursa Major, Celestron SkyPortal app (optional).
+'https://astroedu.iau.org/en/activities/age-that-crater/':4-14, Primary Middle School, 1 hour, Printed images of lunar craters, Ruler, Protractor, Calculator, Pen or pencil, Worksheet for recording observations.
+'https://astroedu.iau.org/en/activities/2203/lets-play-with-powers-of-10/':12+, Middle School Secondary University, 2 hours, Printed card sets (Red: Sub-atomic to Molecular, Blue: Molecular to Human, Green: Human to Astronomical, Yellow: Astronomical to Cosmological), Post-it notes, Pens or pencils, Optional: internet access for research.
+'https://astroedu.iau.org/en/activities/2002/misurare-la-velocita-media-di-una-cometa/':12+, Middle School Secondary, 1 hour 30 minutes, Personal computer with SalsaJ software installed, Spreadsheet software or graph paper, Printed images of comet C/2019 Y4 (optional), Printer (if using printed images), Calculator, Pen or pencil, Ruler.
+'https://astroedu.iau.org/en/activities/2202/make-your-own-sun/':6-12, Primary, 1 hour 30 minutes, Paper to protect the workspace, Various colors of plasticine to represent different layers of the Sun, Scalpel or sharp-edged ruler for cutting the model in half (use with caution and adult supervision).
+'https://astroedu.iau.org/en/activities/2201/hunting-for-spectra/':8-19, Middle School Secondary, 1 hour, Scissors, Ruler, Pen, Tape, Glue, A4 black cardboard, CD or DVD (clean), Printout of the paper spectroscope template (printed at 1:1 scale), Cutter or utility knife (to be used by an adult for safety reasons).
+'https://astroedu.iau.org/en/activities/2001/driving-on-mars/':14-19, Middle School Secondary, 2 hours, Cardboard box (50 cm x 50 cm x 30 cm or larger), Cutters and scissors, Glue, Markers, Paint, Adhesive tape, String, ID cards of space agencies, Plates with the logos of one or more space agencies, "Water/rock" memory cards, Message cards of one or more space agencies, Obstacles (traffic cones, boxes).
+'https://astroedu.iau.org/en/activities/2103/is-the-sun-rotating-follow-the-sunspots/':12-19, Middle School Secondary, 1 hour, Printed drawings of sunspots by Galileo Galilei, Printed set of images of the Sun by the Solar Dynamics Observatory (SDO), Computer with internet access (optional), SalsaJ software (optional), Telescope or solarscope for solar observation (optional).
+'https://astroedu.iau.org/en/activities/2102/reading-the-rainbow/':14+, nformal   Middle School   Secondary   University, 1 hour 30 minutes, Single-axis diffraction gratings (one per student or shared), Incandescent bulb with clear glass, Dimmer (rheostat), Fluorescent light, Helium discharge tube/spectrum tube, At least one other discharge/spectrum tube, Colored pencils, Computer with internet access and projector.
 'https://astroedu.iau.org/en/activities/2101/one-million-earths-inside-our-sun/',
 'https://astroedu.iau.org/en/activities/1801/measure-the-suns-rotation-period/',
 'https://astroedu.iau.org/en/activities/1747/dark-matter-and-dark-energy-part-1-discovering-the-main-components-of-the-universe/',
