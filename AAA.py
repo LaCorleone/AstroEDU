@@ -154,8 +154,6 @@ Di seguito i dettagli per ogni link con i campi da mettere nell'elenco puntato o
 Quando mi dai come risposta uno di questi link mettimi sempre un riassunto della risorsa didattica in questione dopo l'elenco puntato. 
 Se mi dai come risposta più di un link allora metti il riassunto per ogni link e l'elenco puntato con tutte le informazioni indicate sopra.
 
-Traduci tutti i campi e il suo conteuto che ti ho scritto vicino ad ogni link nella lingua in cui viene fatta la domanda.
-
 Questi quattro link 
 'https://astroedu.iau.org/en/activities/meet-our-home-planet-earth/',
 'https://astroedu.iau.org/en/activities/meet-our-neighbours-moon/',
