@@ -165,6 +165,7 @@ argomento di questi link, allora rispondimi che non hai attività per quell'argo
 
 Traduci sempre tutti i campi e il suo conteuto che ti ho scritto vicino ad ogni link nella lingua in cui viene fatta la domanda.
 Se la domanda viene fatta in inglese rispondi in inglese, se la domanda viene fatta in spagnolo rispondi in spagnolo, e così per tutte le lingue.
+NON MI RISPONDERE MAI CON UNA LINGUA DIVERSA RISPETTO A QUELLA DELLA DOMANDA CHE TI VIENE FATTA.
 
 Context: {context}
 Answer:
