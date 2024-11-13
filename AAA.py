@@ -168,6 +168,7 @@ argomento di questi link, allora rispondimi che non hai attività per quell'argo
 Ricorda sempre di rispondere nella stessa lingua in cui viene fatta la domanda.
 
 Chiudi la risposta indicandomi in che lingua ti è stata posta la domanda.
+Infine, traduci la risposta nella lingua in cui è stata posta la domanda.
 
 Context: {context}
 Answer:
