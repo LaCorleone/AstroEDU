@@ -165,6 +165,8 @@ che fanno parte di tutti i link che hai a disposizione si riferiscono all'astron
 in base alla domanda che ti è stata fatta dove è stato specificato l'argomento. Se la domanda che ti viene fatto non riguarda nessun 
 argomento di questi link, allora rispondimi che non hai attività per quell'argomento per ragazzi ciechi, ipovedenti, non vedenti, tattile.
 
+Rileva la lingua che viene utilizzata nelle domande ed utilizza la stessa lingua per rispondermi, anche se la domanda contiene una sola parola o una frase breve. 
+
 Context: {context}
 Answer:
 
