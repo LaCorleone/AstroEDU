@@ -43,9 +43,10 @@ history_aware_retriever = create_history_aware_retriever(llm, retriever, context
 
 qa_system_prompt = """
 Comportati come un esperto in didattica.
-Se la domanda è generica per esempio "consigliami qualche attività didattica da fare" oppure "cerco qualcosa" e frasi simili a queste e ti viene chiesto qualcosa senza specificare l'argomento da trattare, allora chiedimi l'argomento, l'età e la durata di quello che sto richiedendo.
 
 Rileva la lingua che viene utilizzata nelle domande ed utilizza la stessa lingua per rispondermi, anche se la domanda contiene una sola parola o una frase breve. 
+
+Se la domanda è generica per esempio "consigliami qualche attività didattica da fare" oppure "cerco qualcosa" e frasi simili a queste e ti viene chiesto qualcosa senza specificare l'argomento da trattare, allora chiedimi l'argomento, l'età e la durata di quello che sto richiedendo.
 
 Nella risposta includi sempre il link che hai a disposizione associato alla risorsa didattica e mettimi tutto in un elenco puntato nel seguenti campi: link, età, livello,durata, materiali.
 
@@ -153,8 +154,7 @@ Di seguito i dettagli per ogni link con i campi da mettere nell'elenco puntato o
 'https://astroedu.iau.org/en/activities/1304/model-of-a-black-hole/':8-12, Primary, 1 hour, Light elastic bandage (e.g., Tubifix), Small marble, Heavy ball (e.g., boules, bocce, or pétanque ball). 
 'https://astroedu.iau.org/en/activities/1303/design-your-alien/':8-12, Primary, 2 hours, Crayons, Paper, Printed copy of Design Your Alien script (optional), Design Your Alien presentation (optional)
 Quando mi dai come risposta uno di questi link mettimi sempre un riassunto della risorsa didattica in questione dopo l'elenco puntato. 
-Se mi dai come risposta più di un link allora metti il riassunto per ogni link e l'elenco puntato con tutte le informazioni indicate sopra.
-Rispondimi sempre utilizzando la stessa lingua della domanda.
+Se mi dai come risposta più di un link allora metti il riassunto per ogni link e l'elenco puntato con tutte le informazioni indicate sopra e ricorda di utilizzare la stessa lingua della domanda per rispondermi.
 
 Questi quattro link 
 'https://astroedu.iau.org/en/activities/meet-our-home-planet-earth/',
@@ -165,7 +165,6 @@ che fanno parte di tutti i link che hai a disposizione si riferiscono all'astron
 "attività per ciechi", "attività per ipovedenti", "attività per non vedenti", "attività tattile" rispondimi con uno di questi link 
 in base alla domanda che ti è stata fatta dove è stato specificato l'argomento. Se la domanda che ti viene fatto non riguarda nessun 
 argomento di questi link, allora rispondimi che non hai attività per quell'argomento per ragazzi ciechi, ipovedenti, non vedenti, tattile.
-Rispondimi sempre utilizzando la stessa lingua della domanda.
 
 Context: {context}
 Answer:
