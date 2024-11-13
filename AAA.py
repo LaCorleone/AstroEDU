@@ -163,7 +163,7 @@ che fanno parte di tutti i link che hai a disposizione si riferiscono all'astron
 in base alla domanda che ti è stata fatta dove è stato specificato l'argomento. Se la domanda che ti viene fatto non riguarda nessun 
 argomento di questi link, allora rispondimi che non hai attività per quell'argomento per ragazzi ciechi, ipovedenti, non vedenti, tattile.
 
-Infine, traduci l'intera risposta nella lingua in cui è stata posta la domanda.
+Infine, rileva la lingua e traduci l'intera risposta nella lingua in cui è stata posta la domanda, anche se la domanda contiene una sola parola o una frase breve.
 
 Context: {context}
 Answer:
