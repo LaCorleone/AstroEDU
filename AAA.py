@@ -50,9 +50,9 @@ Se la domanda è generica per esempio "consigliami qualche attività didattica d
 Nella risposta includi sempre il link che hai a disposizione associato alla risorsa didattica e mettimi tutto in un elenco puntato nel seguenti campi: link, età, livello,durata, materiali (tradotti nella lingua in cui ti è stata fatta la domanda).
 
 Di seguito i dettagli in inglese per ogni link con i campi da mettere nell'elenco puntato ossia link, età, livello, durata, materiali:
-'https://astroedu.iau.org/en/activities/2406/discover-earths-climate-with-a-balloon/':8-12,Middle School Primary,45 minuti,Image of climatic zones on Earth,Thread,Tape,Glue/sellotape,Ball/Balloon,Scissors,Marker /pencil,Two circular cut-outs (labelled ‘N’ and ‘S’),Labels (braille or printed).
-'https://astroedu.iau.org/en/activities/2403/find-the-hidden-rainbows/':10-16, Middle School Secondary, 1 ora, Diffraction grating glasses (500 lines/mm), Various light sources (continuous emission like halogen or white LEDs, and line emission like fluorescent lamps), Power supply for light sources, Optional colored optical filters, Optional black background for spectrum observation.
-'https://astroedu.iau.org/en/activities/2405/the-gravity-battle/':8-19, Informal   Middle School   Primary   Secondary, 1 ora, Wooden cubes, Nails, Copper wire, Aluminum foil, Water containers, Shoe boxes, Magnets, Glue, Sheets of paper, Inclined plane (half painted).
+'https://astroedu.iau.org/en/activities/2406/discover-earths-climate-with-a-balloon/':8-12,Middle School Primary,45 minutes,Image of climatic zones on Earth,Thread,Tape,Glue/sellotape,Ball/Balloon,Scissors,Marker /pencil,Two circular cut-outs (labelled ‘N’ and ‘S’),Labels (braille or printed).
+'https://astroedu.iau.org/en/activities/2403/find-the-hidden-rainbows/':10-16, Middle School Secondary, 1 hour, Diffraction grating glasses (500 lines/mm), Various light sources (continuous emission like halogen or white LEDs, and line emission like fluorescent lamps), Power supply for light sources, Optional colored optical filters, Optional black background for spectrum observation.
+'https://astroedu.iau.org/en/activities/2405/the-gravity-battle/':8-19, Informal   Middle School   Primary   Secondary, 1 hour, Wooden cubes, Nails, Copper wire, Aluminum foil, Water containers, Shoe boxes, Magnets, Glue, Sheets of paper, Inclined plane (half painted).
 'https://astroedu.iau.org/en/activities/2404/skao-and-the-mysteries-of-invisible-light/':12-16, Informal   Middle School   Secondary, multiple days, Infrared camera, Black plastic bag, Radio Frequency (RF) detector, Spectrum analyser (optional), Parabolic microphone, Laser pointer, Optical fibre, Sound system with two input signals, Two mp3 players.
 'https://astroedu.iau.org/en/activities/2402/chasing-the-moon/':14-19, Middle School   Secondary, multiple days, Cross-staff, Star charts, Protractor or compass, Paper, Pen or pencil.
 'https://astroedu.iau.org/en/activities/2401/the-sky-at-your-fingertips/':10-14, Middle School  Primary, 2 hours, Stiff paper (A4, at least 200 g/m²), 40 cm ruler, Pen, Scalpel, Scissors, Adhesive tape, Cardboard, Cross-staff mask, Ruler mask.
@@ -166,6 +166,8 @@ che fanno parte di tutti i link che hai a disposizione si riferiscono all'astron
 in base alla domanda che ti è stata fatta dove è stato specificato l'argomento. Se la domanda che ti viene fatto non riguarda nessun 
 argomento di questi link, allora rispondimi che non hai attività per quell'argomento per ragazzi ciechi, ipovedenti, non vedenti, tattile.
 Ricorda sempre di rispondere nella stessa lingua in cui viene fatta la domanda.
+
+Chiudi la risposta indicandomi in che lingua ti è stata posta la domanda.
 
 Context: {context}
 Answer:
