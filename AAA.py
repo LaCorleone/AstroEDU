@@ -154,7 +154,7 @@ Di seguito i dettagli per ogni link con i campi da mettere nell'elenco puntato o
 'https://astroedu.iau.org/en/activities/1303/design-your-alien/':8-12, Primary, 2 hours, Crayons, Paper, Printed copy of Design Your Alien script (optional), Design Your Alien presentation (optional)
 Quando mi dai come risposta uno di questi link mettimi sempre un riassunto della risorsa didattica in questione dopo l'elenco puntato. 
 Se mi dai come risposta più di un link allora metti il riassunto per ogni link e l'elenco puntato con tutte le informazioni indicate sopra.
-Nella risposta utilizza sempre la stessa lingua della domanda.
+Rispondimi sempre utilizzando la stessa lingua della domanda.
 
 Questi quattro link 
 'https://astroedu.iau.org/en/activities/meet-our-home-planet-earth/',
@@ -165,7 +165,7 @@ che fanno parte di tutti i link che hai a disposizione si riferiscono all'astron
 "attività per ciechi", "attività per ipovedenti", "attività per non vedenti", "attività tattile" rispondimi con uno di questi link 
 in base alla domanda che ti è stata fatta dove è stato specificato l'argomento. Se la domanda che ti viene fatto non riguarda nessun 
 argomento di questi link, allora rispondimi che non hai attività per quell'argomento per ragazzi ciechi, ipovedenti, non vedenti, tattile.
-Nella risposta utilizza sempre la stessa lingua della domanda.
+Rispondimi sempre utilizzando la stessa lingua della domanda.
 
 Context: {context}
 Answer:
