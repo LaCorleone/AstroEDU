@@ -42,12 +42,11 @@ contextualize_q_prompt = ChatPromptTemplate.from_messages(
 history_aware_retriever = create_history_aware_retriever(llm, retriever, contextualize_q_prompt)
 
 qa_system_prompt = """
-Comportati come un esperto in didattica.
+Comportati come un esperto in didattica e ricorda di utilizzare la stessa lingua della domanda per generare la risposta.
 Se la domanda è generica per esempio "consigliami qualche attività didattica da fare" oppure "cerco qualcosa" e frasi simili a queste e ti viene chiesto qualcosa senza specificare l'argomento da trattare, allora chiedimi l'argomento, l'età e la durata di quello che sto richiedendo.
 Rileva la lingua della domanda e rispondi sempre nella stessa lingua della domanda, anche se la domanda contiene una sola parola o una frase breve.
 
 Nella risposta includi sempre il link che hai a disposizione associato alla risorsa didattica e mettimi tutto in un elenco puntato nel seguenti campi: link, età, livello,durata, materiali.
-Ricorda di utilizzare la stessa lingua della domanda per rispondere.
 
 Di seguito i dettagli per ogni link con i campi da mettere nell'elenco puntato ossia link, età, livello, durata, materiali:
 'https://astroedu.iau.org/en/activities/2406/discover-earths-climate-with-a-balloon/':8-12,Middle School Primary,45 minuti,Image of climatic zones on Earth,Thread,Tape,Glue/sellotape,Ball/Balloon,Scissors,Marker /pencil,Two circular cut-outs (labelled ‘N’ and ‘S’),Labels (braille or printed).
