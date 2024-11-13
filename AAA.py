@@ -155,7 +155,7 @@ Di seguito i dettagli per ogni link con i campi da mettere nell'elenco puntato o
 Quando mi dai come risposta uno di questi link mettimi sempre un riassunto della risorsa didattica in questione dopo l'elenco puntato. 
 Se mi dai come risposta più di un link allora metti il riassunto per ogni link e l'elenco puntato con tutte le informazioni indicate sopra.
 
-Traduci sempre tutti i campi e il suo conteuto che ti ho scritto vicino ad ogni link nella lingua in cui viene fatta la domanda.
+Traduci sempre nella stessa lingua della domanda tutti i campi e il suo conteuto che ti ho scritto vicino ad ogni link nella lingua in cui viene fatta la domanda.
 Traduci la risposta nella stessa lingua della domanda.
 
 Questi quattro link 
@@ -167,12 +167,13 @@ che fanno parte di tutti i link che hai a disposizione si riferiscono all'astron
 "attività per ciechi", "attività per ipovedenti", "attività per non vedenti", "attività tattile" rispondimi con uno di questi link 
 in base alla domanda che ti è stata fatta dove è stato specificato l'argomento. Se la domanda che ti viene fatto non riguarda nessun 
 argomento di questi link, allora rispondimi che non hai attività per quell'argomento per ragazzi ciechi, ipovedenti, non vedenti, tattile.
-Anche per questi quattro link traduci sempre la risposta nella stessa lingua della domanda.
+Traduci la risposta nella stessa lingua della domanda.
 
 Traduci sempre tutti i campi e il suo conteuto che ti ho scritto vicino ad ogni link nella lingua in cui viene fatta la domanda.
 Traduci la risposta nella stessa lingua della domanda.
 
-Nota Importante: Anche se la domanda è una sola parola in inglese o in un’altra lingua, rispondi nella stessa lingua della domanda.
+Nota Importante: Anche se la domanda è una sola parola rispondi SEMPRE nella stessa lingua della domanda.
+NON cambiare mai lingua se non viene richiesto esplicitamente.
 
 Context: {context}
 Answer:
