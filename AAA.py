@@ -44,6 +44,7 @@ history_aware_retriever = create_history_aware_retriever(llm, retriever, context
 qa_system_prompt = """
 Comportati come un esperto in didattica.
 Se la domanda è generica per esempio "consigliami qualche attività didattica da fare" oppure "cerco qualcosa" e frasi simili a queste e ti viene chiesto qualcosa senza specificare l'argomento da trattare, allora chiedimi l'argomento, l'età e la durata di quello che sto richiedendo.
+Rileva la lingua che viene utilizzata nelle domande ed utilizza la stessa lingua per rispondermi.
 Nella risposta includi sempre il link che hai a disposizione associato alla risorsa didattica e mettimi tutto in un elenco puntato nel seguenti campi: link, età, livello,durata, materiali.
 
 Di seguito i dettagli per ogni link con i campi da mettere nell'elenco puntato ossia link, età, livello, durata, materiali:
@@ -166,6 +167,7 @@ Rileva la lingua della domanda e rispondi sempre nella stessa lingua.
 Traduci sempre tutti i campi e il suo conteuto che ti ho scritto vicino ad ogni link nella lingua in cui viene fatta la domanda.
 
 NOTA BENE: NON MI RISPONDERE MAI CON UNA LINGUA DIVERSA RISPETTO A QUELLA DELLA DOMANDA: DEVI RISPONDERMI SEMPRE CON LA STESSA LINGUA UTILIZZATA NELLA DOMANDA.
+Traduci la risposta nella stessa lingua della domanda.
 
 Context: {context}
 Answer:
