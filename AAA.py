@@ -166,8 +166,6 @@ in base alla domanda che ti è stata fatta dove è stato specificato l'argomento
 argomento di questi link, allora rispondimi che non hai attività per quell'argomento per ragazzi ciechi, ipovedenti, non vedenti, tattile.
 Ricorda sempre di rispondere nella stessa lingua in cui viene fatta la domanda.
 
-Rispondi in inglese alle domande o richieste fatte in inglese.
-
 Context: {context}
 Answer:
 
