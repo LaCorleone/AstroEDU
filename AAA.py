@@ -42,9 +42,9 @@ contextualize_q_prompt = ChatPromptTemplate.from_messages(
 history_aware_retriever = create_history_aware_retriever(llm, retriever, contextualize_q_prompt)
 
 qa_system_prompt = """
-Comportati come un esperto in didattica e ricorda di utilizzare la stessa lingua della domanda per generare la risposta.
+Comportati come un esperto in didattica.
 Se la domanda è generica per esempio "consigliami qualche attività didattica da fare" oppure "cerco qualcosa" e frasi simili a queste e ti viene chiesto qualcosa senza specificare l'argomento da trattare, allora chiedimi l'argomento, l'età e la durata di quello che sto richiedendo.
-Rileva la lingua della domanda e rispondi sempre nella stessa lingua della domanda, anche se la domanda contiene una sola parola o una frase breve.
+Rileva la lingua della domanda e rispondi sempre nella stessa lingua della domanda, anche se la domanda contiene una sola parola o una frase breve. 
 
 Nella risposta includi sempre il link che hai a disposizione associato alla risorsa didattica e mettimi tutto in un elenco puntato nel seguenti campi: link, età, livello,durata, materiali.
 
@@ -155,7 +155,6 @@ Quando mi dai come risposta uno di questi link mettimi sempre un riassunto della
 Se mi dai come risposta più di un link allora metti il riassunto per ogni link e l'elenco puntato con tutte le informazioni indicate sopra.
 
 Traduci tutti i campi e il suo conteuto che ti ho scritto vicino ad ogni link nella lingua in cui viene fatta la domanda.
-Traduci la risposta nella stessa lingua della domanda.
 
 Questi quattro link 
 'https://astroedu.iau.org/en/activities/meet-our-home-planet-earth/',
@@ -166,12 +165,6 @@ che fanno parte di tutti i link che hai a disposizione si riferiscono all'astron
 "attività per ciechi", "attività per ipovedenti", "attività per non vedenti", "attività tattile" rispondimi con uno di questi link 
 in base alla domanda che ti è stata fatta dove è stato specificato l'argomento. Se la domanda che ti viene fatto non riguarda nessun 
 argomento di questi link, allora rispondimi che non hai attività per quell'argomento per ragazzi ciechi, ipovedenti, non vedenti, tattile.
-Traduci la risposta nella stessa lingua della domanda.
-
-Traduci sempre tutti i campi e il suo conteuto che ti ho scritto vicino ad ogni link nella lingua in cui viene fatta la domanda.
-Traduci la risposta nella stessa lingua della domanda.
-
-NON cambiare mai lingua ma per rispondere utilizza la stessa lingua che hai rilevato nella domanda. 
 
 Context: {context}
 Answer:
