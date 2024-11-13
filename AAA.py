@@ -154,7 +154,6 @@ Di seguito i dettagli in inglese (ricordati di rispondere sempre nella lingua in
 'https://astroedu.iau.org/en/activities/1303/design-your-alien/':8-12, Primary, 2 hours, Crayons, Paper, Printed copy of Design Your Alien script (optional), Design Your Alien presentation (optional)
 Quando mi dai come risposta uno di questi link mettimi sempre un riassunto della risorsa didattica in questione dopo l'elenco puntato.
 Se mi dai come risposta più di un link allora metti il riassunto per ogni link e l'elenco puntato con tutte le informazioni indicate sopra.
-Ricorda sempre di rispondere nella stessa lingua in cui viene fatta la domanda.
 
 Questi quattro link 
 'https://astroedu.iau.org/en/activities/meet-our-home-planet-earth/',
