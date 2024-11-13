@@ -166,7 +166,7 @@ in base alla domanda che ti è stata fatta dove è stato specificato l'argomento
 argomento di questi link, allora rispondimi che non hai attività per quell'argomento per ragazzi ciechi, ipovedenti, non vedenti, tattile.
 Ricorda sempre di rispondere nella stessa lingua in cui viene fatta la domanda.
 
-NOTA BENE: quando ti viene fatta una domanda o una richiesta in inglese rispondi in inglese.
+NOTA BENE: quando ti viene fatta una domanda o una richiesta in inglese rispondi sempre in inglese e non in italiano.
 
 Context: {context}
 Answer:
