@@ -106,20 +106,13 @@ rag_chain = create_retrieval_chain(history_aware_retriever, question_answer_chai
 # -----------------------------
 # UI
 # -----------------------------
-from pathlib import Path
-import streamlit as st
+# Intestazione
+#st.markdown("<h1 style='text-align: center; color: #0004ff;'>Welcome to AstroEDU AI Assistant!</h1>", unsafe_allow_html=True)
+st.image("./LOGO2.webp", use_column_width=True) 
 
-LOGO_PATH = Path(__file__).parent / "LOGO2.webp"
-if LOGO_PATH.exists():
-    st.image(str(LOGO_PATH), use_container_width=True)
-
+# Sezione di Benvenuto
 st.markdown("<h2 style='color: #FFA500;'>Welcome to AstroEDU AI Assistant!</h2>", unsafe_allow_html=True)
-st.markdown(
-    "I'm here to help you find and use educational materials from AstroEDU.<br>"
-    "Ask me in your language if you want!",
-    unsafe_allow_html=True
-)
-
+st.markdown("I'm here to help you find and make the best use of educational materials from AstroEDU.<br>How can I assist you? If you want, speak to me in your language!", unsafe_allow_html=True)
 
 # -----------------------------
 # CHAT LOGIC
