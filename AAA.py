@@ -109,7 +109,7 @@ rag_chain = create_retrieval_chain(history_aware_retriever, question_answer_chai
 from pathlib import Path
 import streamlit as st
 
-LOGO_PATH = Path(__file__).parent / "LOGO2.png"
+LOGO_PATH = Path(__file__).parent / "LOGO2.webp"
 if LOGO_PATH.exists():
     st.image(str(LOGO_PATH), use_container_width=True)
 
