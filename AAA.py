@@ -106,6 +106,16 @@ rag_chain = create_retrieval_chain(history_aware_retriever, question_answer_chai
 # -----------------------------
 # UI
 # -----------------------------
+import os
+from pathlib import Path
+
+LOGO_PATH = Path(__file__).parent / "LOGO2.webp"
+
+if LOGO_PATH.exists():
+    st.image(str(LOGO_PATH), use_container_width=True)
+else:
+    st.warning(f"Logo not found: {LOGO_PATH}")
+
 if os.path.exists(LOGO_PATH):
     st.image(LOGO_PATH, use_container_width=True)
 
