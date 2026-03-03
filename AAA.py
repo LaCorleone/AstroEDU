@@ -186,71 +186,91 @@ qa_prompt = ChatPromptTemplate.from_messages(
 question_answer_chain = create_stuff_documents_chain(llm, qa_prompt)
 
 rag_chain = create_retrieval_chain(history_aware_retriever, question_answer_chain)
-
 import streamlit as st
 
 st.set_page_config(page_title="AstroEDU Agent", layout="wide")
 
-# ---------------- CSS PULITO ----------------
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap');
 
-html, body, [class*="css"] {
-    font-family: 'Montserrat', sans-serif;
+html, body, [class*="css"] { font-family: 'Montserrat', sans-serif !important; }
+
+/* SFONDO (robusto) */
+[data-testid="stAppViewContainer"],
+[data-testid="stMain"],
+.stApp {
+    background-color: #f6f6f6 !important;
 }
 
-/* Sfondo grigio identico al banner */
-[data-testid="stAppViewContainer"] {
-    background-color: #f6f6f6;
-}
-
-/* Riduce padding sopra */
+/* container più largo e meno padding */
 .block-container {
     padding-top: 0rem !important;
     padding-bottom: 2rem !important;
-    max-width: 1200px;
+    max-width: 1400px !important;   /* così il banner risulta più grande */
 }
 
-/* Rimuove eventuali linee */
+/* evita linee */
 hr { display: none !important; }
 
-/* Chat styling semplice e corretto */
-[data-testid="stChatInput"] {
-    max-width: 820px;
-    margin: 50px auto 0 auto;
-    border-radius: 30px;
-    border: 2px solid #F39C12;
-    background: white;
-    padding: 10px 18px;
+/* BANNER: togli margini */
+[data-testid="stImage"] { margin-bottom: 0 !important; }
+
+/* TITOLO */
+.hero-title{
+    font-size: 56px;
+    font-weight: 800;
+    color: #F39C12;
+    text-align: center;
+    margin: 2rem 0 2.2rem 0;
+    letter-spacing: -0.5px;
 }
 
-/* Pulsante dentro il bordo arancione */
-[data-testid="stChatInput"] button {
-    background-color: #F39C12 !important;
-    border-radius: 20px !important;
+/* CHAT: bordo arancione + contenimento */
+[data-testid="stChatInput"]{
+    max-width: 980px !important;
+    margin: 0 auto !important;
+    border-radius: 32px !important;
+    border: 2px solid #F39C12 !important;
+    background: #ffffff !important;
+    padding: 10px 16px !important;
+}
+
+/* evita che qualcosa sfori fuori dal bordo */
+[data-testid="stChatInput"] * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Pulsante invio: selettori robusti */
+[data-testid="stChatInput"] button,
+[data-testid="stChatInput"] button[kind="secondary"] {
+    background: #F39C12 !important;
     border: none !important;
+    border-radius: 18px !important;
 }
 
 [data-testid="stChatInput"] button svg {
     color: white !important;
 }
+
+/* Placeholder */
+[data-testid="stChatInput"] textarea::placeholder {
+    color: rgba(120,120,120,0.75) !important;
+    font-weight: 500 !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
-# ---------------- BANNER GRANDE INTERO ----------------
-
-# L'immagine ora è più grande e intera
+# --- BANNER (intero) ---
 st.image("./Astroedu-Agent-Header.jpg", use_column_width=True)
 
-# ---------------- TITOLO ----------------
-st.markdown(
-    "<h1 style='text-align:center; color:#F39C12; margin-top:40px;'>Welcome to AstroEDU Agent</h1>",
-    unsafe_allow_html=True
-)
+# --- TITOLO ---
+st.markdown('<div class="hero-title">Welcome to AstroEDU Agent</div>', unsafe_allow_html=True)
 
-# ---------------- CHAT ----------------
+# --- CHAT (UNA SOLA) ---
 st.chat_input("Enter your message")
+
 
 # Configura la pagina
 #st.set_page_config(page_title="AstroEdu AI Assistant", layout="wide")
