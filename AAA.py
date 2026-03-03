@@ -186,6 +186,7 @@ qa_prompt = ChatPromptTemplate.from_messages(
 question_answer_chain = create_stuff_documents_chain(llm, qa_prompt)
 
 rag_chain = create_retrieval_chain(history_aware_retriever, question_answer_chain)
+
 import streamlit as st
 
 st.set_page_config(page_title="AstroEDU Agent", layout="wide")
@@ -199,24 +200,22 @@ html, body, [class*="css"] {
     font-family: 'Montserrat', sans-serif;
 }
 
-/* Sfondo identico al banner */
+/* Sfondo coerente */
 [data-testid="stAppViewContainer"] {
     background-color: #f6f6f6;
 }
 
-/* Rimuove padding eccessivo sopra e sotto */
+/* Container centrale */
 .block-container {
     padding-top: 0rem !important;
     padding-bottom: 2rem !important;
     max-width: 1100px;
 }
 
-/* Rimuove qualsiasi hr (striscia bianca) */
-hr {
-    display: none !important;
-}
+/* Rimuove divider e linee */
+hr { display: none !important; }
 
-/* Rimuove spazio sotto immagini */
+/* Rimuove spazio sotto immagine */
 [data-testid="stImage"] {
     margin-bottom: 0rem !important;
 }
@@ -227,10 +226,10 @@ hr {
     font-weight: 800;
     color: #F39C12;
     text-align: center;
-    margin: 1rem 0 1.2rem 0;
+    margin: 1rem 0 2rem 0;
 }
 
-/* CHAT CONTENUTA PERFETTAMENTE */
+/* Chat */
 [data-testid="stChatInput"] {
     max-width: 820px;
     margin: 40px auto 0 auto;
@@ -239,13 +238,6 @@ hr {
     background: white;
     box-shadow: 0 8px 20px rgba(243,156,18,0.12);
     padding: 8px 14px;
-    overflow: hidden;
-}
-
-/* Contenitore interno input */
-[data-testid="stChatInput"] textarea {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 15px;
 }
 
 /* Pulsante invio */
@@ -255,33 +247,27 @@ hr {
     border: none !important;
 }
 
-/* Hover */
-[data-testid="stChatInput"] button:hover {
-    background-color: #e38b10 !important;
-}
-
-/* Icona bianca */
 [data-testid="stChatInput"] button svg {
     color: white !important;
-}
-
-/* IMPORTANTE: evita che la chat sfori */
-[data-testid="stChatInput"] > div {
-    max-width: 100% !important;
 }
 </style>
 """, unsafe_allow_html=True)
 
 # ---------------- HERO ----------------
 
-# 👇 QUESTO mostra l'immagine intera senza tagli
+# 🔴 QUESTO MOSTRA L'IMMAGINE INTERA
 st.image("./Astroedu-Agent-Header.jpg", use_column_width=True)
 
-st.markdown('<div class="hero-title">Welcome to AstroEDU Agent</div>', unsafe_allow_html=True)
+st.markdown(
+    '<div class="hero-title">Welcome to AstroEDU Agent</div>',
+    unsafe_allow_html=True
+)
 
-# ---------------- CHAT ----------------
+# ---------------- CHAT (UNA SOLA) ----------------
 
-st.chat_input("Describe your classroom needs (topic, age, duration)…")
+user_message = st.chat_input("Enter your message")
+
+
 
 
 # Configura la pagina
