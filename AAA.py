@@ -189,26 +189,38 @@ rag_chain = create_retrieval_chain(history_aware_retriever, question_answer_chai
 
 import streamlit as st
 
+# -----------------------------
+# CONFIG PAGINA
+# -----------------------------
 st.set_page_config(page_title="AstroEDU Agent", layout="wide")
 
-# --- CSS: elimina spazi, elimina divider, evidenzia chat ---
+# -----------------------------
+# CSS (stile coerente AstroEDU)
+# -----------------------------
 st.markdown("""
 <style>
-/* Riduci i margini/padding “giganti” di Streamlit */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap');
+
+html, body, [class*="css"] { font-family: 'Montserrat', sans-serif; }
+
+/* Sfondo chiaro come il banner */
+[data-testid="stAppViewContainer"] { background: #f6f6f6; }
+
+/* Padding Streamlit più compatto */
 .block-container {
     padding-top: 0.4rem !important;
     padding-bottom: 1.2rem !important;
     max-width: 1200px;
 }
 
-/* Togli spazio extra sopra l’immagine */
+/* Spazi immagine ridotti */
 [data-testid="stImage"] {
     margin-top: 0rem !important;
     margin-bottom: 0.6rem !important;
 }
 
-/* Titolo e sottotitolo più “attaccati” al banner */
-.hero-title {
+/* Titolo e sottotitolo */
+.hero-title{
     font-size: 56px;
     font-weight: 800;
     color: #F39C12;
@@ -216,41 +228,73 @@ st.markdown("""
     margin: 0.6rem 0 0.2rem 0;
     letter-spacing: -0.5px;
 }
-.hero-sub {
+.hero-sub{
     font-size: 18px;
     text-align: center;
     color: #666;
     margin: 0 auto 0.9rem auto;
-    max-width: 860px;
+    max-width: 820px;
     line-height: 1.6;
 }
 
-/* Sezione chat: più visibile */
-.chat-wrap {
-    background: #ffffff;
-    border: 1px solid rgba(0,0,0,0.10);
-    border-radius: 18px;
-    padding: 14px 16px;
-    box-shadow: 0 10px 24px rgba(0,0,0,0.06);
-    margin-top: 10px;
-}
-
-/* Input chat più “product” */
+/* --- CHAT FLOATING ASTROEDU --- */
 [data-testid="stChatInput"] {
-    border-radius: 14px;
-    border: 1px solid rgba(0,0,0,0.12);
-    background: white;
+    max-width: 820px;
+    margin: 40px auto 30px auto;
+    border-radius: 22px;
+    border: 1.5px solid rgba(243,156,18,0.35);
+    background: #ffffff;
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.08),
+        0 4px 14px rgba(243,156,18,0.10);
+    padding: 8px 12px;
+    transition: all 0.2s ease-in-out;
 }
 
-/* IMPORTANTISSIMO: elimina eventuali divider/bande bianche */
+/* Effetto focus elegante */
+[data-testid="stChatInput"]:focus-within {
+    border: 1.5px solid #F39C12;
+    box-shadow:
+        0 14px 35px rgba(0,0,0,0.12),
+        0 6px 20px rgba(243,156,18,0.20);
+    transform: translateY(-2px);
+}
+
+/* Pulsante invio */
+[data-testid="stChatInput"] button {
+    background-color: #F39C12 !important;
+    border-radius: 14px !important;
+    border: none !important;
+    box-shadow: 0 4px 12px rgba(243,156,18,0.25);
+}
+[data-testid="stChatInput"] button:hover {
+    background-color: #e38b10 !important;
+}
+[data-testid="stChatInput"] button svg {
+    color: white !important;
+}
+
+/* Placeholder e testo */
+[data-testid="stChatInput"] textarea::placeholder {
+    color: rgba(120,120,120,0.75);
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+}
+[data-testid="stChatInput"] textarea {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+}
+
+/* Evita linee/divider indesiderati */
 hr { display: none !important; }
 </style>
 """, unsafe_allow_html=True)
 
-# --- BANNER: intero, senza box ---
+# -----------------------------
+# HERO (banner intero + testi)
+# -----------------------------
 st.image("./Astroedu-Agent-Header.jpg", use_column_width=True)
 
-# --- TESTO ---
 st.markdown('<div class="hero-title">Welcome to AstroEDU Agent</div>', unsafe_allow_html=True)
 st.markdown("""
 <div class="hero-sub">
@@ -258,12 +302,6 @@ I help educators find the best <b>peer-reviewed</b> AstroEDU activities.<br>
 Tell me the topic, students’ age, and the time you have — you can write in your language.
 </div>
 """, unsafe_allow_html=True)
-
-# --- CHAT EVIDENZIATA (contenitore) ---
-st.markdown('<div class="chat-wrap">', unsafe_allow_html=True)
-st.markdown("**Start chatting ↓** (example: *“I need a 30-minute activity about the Moon for age 8–10”*)")
-st.markdown('</div>', unsafe_allow_html=True)
-
 
 # Configura la pagina
 #st.set_page_config(page_title="AstroEdu AI Assistant", layout="wide")
