@@ -191,7 +191,7 @@ import streamlit as st
 
 st.set_page_config(page_title="AstroEDU Agent", layout="wide")
 
-# ---------------- CSS ----------------
+# ---------------- CSS PULITO ----------------
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap');
@@ -200,50 +200,35 @@ html, body, [class*="css"] {
     font-family: 'Montserrat', sans-serif;
 }
 
-/* Sfondo coerente */
+/* Sfondo grigio identico al banner */
 [data-testid="stAppViewContainer"] {
     background-color: #f6f6f6;
 }
 
-/* Container centrale */
+/* Riduce padding sopra */
 .block-container {
     padding-top: 0rem !important;
     padding-bottom: 2rem !important;
-    max-width: 1100px;
+    max-width: 1200px;
 }
 
-/* Rimuove divider e linee */
+/* Rimuove eventuali linee */
 hr { display: none !important; }
 
-/* Rimuove spazio sotto immagine */
-[data-testid="stImage"] {
-    margin-bottom: 0rem !important;
-}
-
-/* Titolo */
-.hero-title{
-    font-size: 52px;
-    font-weight: 800;
-    color: #F39C12;
-    text-align: center;
-    margin: 1rem 0 2rem 0;
-}
-
-/* Chat */
+/* Chat styling semplice e corretto */
 [data-testid="stChatInput"] {
     max-width: 820px;
-    margin: 40px auto 0 auto;
-    border-radius: 22px;
-    border: 1.5px solid rgba(243,156,18,0.6);
+    margin: 50px auto 0 auto;
+    border-radius: 30px;
+    border: 2px solid #F39C12;
     background: white;
-    box-shadow: 0 8px 20px rgba(243,156,18,0.12);
-    padding: 8px 14px;
+    padding: 10px 18px;
 }
 
-/* Pulsante invio */
+/* Pulsante dentro il bordo arancione */
 [data-testid="stChatInput"] button {
     background-color: #F39C12 !important;
-    border-radius: 14px !important;
+    border-radius: 20px !important;
     border: none !important;
 }
 
@@ -253,22 +238,19 @@ hr { display: none !important; }
 </style>
 """, unsafe_allow_html=True)
 
-# ---------------- HERO ----------------
+# ---------------- BANNER GRANDE INTERO ----------------
 
-#QUESTO MOSTRA L'IMMAGINE INTERA
+# L'immagine ora è più grande e intera
 st.image("./Astroedu-Agent-Header.jpg", use_column_width=True)
 
+# ---------------- TITOLO ----------------
 st.markdown(
-    '<div class="hero-title">Welcome to AstroEDU Agent</div>',
+    "<h1 style='text-align:center; color:#F39C12; margin-top:40px;'>Welcome to AstroEDU Agent</h1>",
     unsafe_allow_html=True
 )
 
-# ---------------- CHAT (UNA SOLA) ----------------
-
-user_message = st.chat_input("Enter your message")
-
-
-
+# ---------------- CHAT ----------------
+st.chat_input("Enter your message")
 
 # Configura la pagina
 #st.set_page_config(page_title="AstroEdu AI Assistant", layout="wide")
