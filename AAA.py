@@ -188,45 +188,46 @@ question_answer_chain = create_stuff_documents_chain(llm, qa_prompt)
 rag_chain = create_retrieval_chain(history_aware_retriever, question_answer_chain)
 import streamlit as st
 
+# Configura la pagina
 st.set_page_config(page_title="AstroEDU Agent", layout="wide")
 
+# ---------------- CSS (solo modifiche richieste) ----------------
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap');
 
-html, body, [class*="css"] { font-family: 'Montserrat', sans-serif !important; }
+html, body, [class*="css"] { 
+    font-family: 'Montserrat', sans-serif !important; 
+}
 
-/* SFONDO (robusto) */
+/* Sfondo grigio coerente col banner */
 [data-testid="stAppViewContainer"],
 [data-testid="stMain"],
 .stApp {
     background-color: #f6f6f6 !important;
 }
 
-/* container più largo e meno padding */
+/* Container un po' più largo e meno padding sopra */
 .block-container {
     padding-top: 0rem !important;
     padding-bottom: 2rem !important;
-    max-width: 1400px !important;   /* così il banner risulta più grande */
+    max-width: 1400px !important;   /* fa percepire il banner più grande */
 }
 
-/* evita linee */
+/* Evita righe/divider */
 hr { display: none !important; }
 
-/* BANNER: togli margini */
-[data-testid="stImage"] { margin-bottom: 0 !important; }
-
-/* TITOLO */
+/* Titolo */
 .hero-title{
     font-size: 56px;
     font-weight: 800;
     color: #F39C12;
     text-align: center;
-    margin: 2rem 0 2.2rem 0;
+    margin: 2rem 0 2rem 0;
     letter-spacing: -0.5px;
 }
 
-/* CHAT: bordo arancione + contenimento */
+/* Chat: bordo arancione + tutto contenuto dentro */
 [data-testid="stChatInput"]{
     max-width: 980px !important;
     margin: 0 auto !important;
@@ -236,13 +237,13 @@ hr { display: none !important; }
     padding: 10px 16px !important;
 }
 
-/* evita che qualcosa sfori fuori dal bordo */
+/* Evita qualsiasi sforamento */
 [data-testid="stChatInput"] * {
     max-width: 100% !important;
     box-sizing: border-box !important;
 }
 
-/* Pulsante invio: selettori robusti */
+/* Pulsante invio arancione */
 [data-testid="stChatInput"] button,
 [data-testid="stChatInput"] button[kind="secondary"] {
     background: #F39C12 !important;
@@ -253,22 +254,17 @@ hr { display: none !important; }
 [data-testid="stChatInput"] button svg {
     color: white !important;
 }
-
-/* Placeholder */
-[data-testid="stChatInput"] textarea::placeholder {
-    color: rgba(120,120,120,0.75) !important;
-    font-weight: 500 !important;
-}
 </style>
 """, unsafe_allow_html=True)
 
-# --- BANNER (intero) ---
+# ---------------- Intestazione (come nel tuo codice) ----------------
+# Banner grande e intero (nessun taglio)
 st.image("./Astroedu-Agent-Header.jpg", use_column_width=True)
 
-# --- TITOLO ---
-st.markdown('<div class="hero-title">Welcome to AstroEDU Agent</div>', unsafe_allow_html=True)
+# Titolo (stesso testo, solo font e stile coerente)
+st.markdown('<div class="hero-title">Welcome to AstroEDU Agent!</div>', unsafe_allow_html=True)
 
-# --- CHAT (UNA SOLA) ---
+# ---------------- Chat (UNA SOLA) ----------------
 st.chat_input("Enter your message")
 
 
