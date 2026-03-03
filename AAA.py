@@ -275,22 +275,19 @@ st.markdown('</div>', unsafe_allow_html=True)
 
 # ---- TITOLO ----
 #st.markdown('<div class="hero-title">Welcome to AstroEDU Agent!</div>', unsafe_allow_html=True)
-#st.markdown("""
-<div style="
-    font-size: 18px;          /* più piccolo */
-    font-weight: 500;         /* leggermente meno pesante */
-    color: #F39C12;
-    text-align: center;
-    margin: 1.5rem 0 0.8rem 0;  /* meno spazio sopra e sotto */
-    max-width: 850px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.5;
-">
-I'm here to help you find and make the best use of educational materials from AstroEDU.<br>
-How can I assist you? If you want, speak to me in your language!
-</div>
-""", unsafe_allow_html=True)
+#st.markdown("""<div style="
+ #   font-size: 18px;          /* più piccolo */
+  #  font-weight: 500;         /* leggermente meno pesante */
+  #  color: #F39C12;
+   # text-align: center;
+    #margin: 1.5rem 0 0.8rem 0;  /* meno spazio sopra e sotto */
+    #max-width: 850px;
+    #margin-left: auto;
+    #margin-right: auto;
+    #line-height: 1.5;">
+#I'm here to help you find and make the best use of educational materials from AstroEDU.<br>
+#How can I assist you? If you want, speak to me in your language!</div>
+#""", unsafe_allow_html=True)
 
 # ---- CHAT ----
 st.chat_input("Enter your message")
