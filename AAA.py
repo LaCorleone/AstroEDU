@@ -187,16 +187,81 @@ question_answer_chain = create_stuff_documents_chain(llm, qa_prompt)
 
 rag_chain = create_retrieval_chain(history_aware_retriever, question_answer_chain)
 
+import streamlit as st
+
+st.set_page_config(layout="wide")
+
+# ---------- CSS CUSTOM ----------
+st.markdown("""
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap');
+
+html, body, [class*="css"]  {
+    font-family: 'Montserrat', sans-serif;
+}
+
+[data-testid="stAppViewContainer"] {
+    background-color: #f7f7f7;
+}
+
+.hero-container {
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.title {
+    font-size: 56px;
+    font-weight: 700;
+    color: #F39C12;
+    margin-top: 30px;
+}
+
+.subtitle {
+    font-size: 20px;
+    color: #555555;
+    max-width: 800px;
+    margin: auto;
+    margin-top: 20px;
+    line-height: 1.6;
+}
+
+.divider {
+    height: 1px;
+    background-color: #e0e0e0;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+</style>
+""", unsafe_allow_html=True)
+
+# ---------- HERO SECTION ----------
+st.markdown('<div class="hero-container">', unsafe_allow_html=True)
+
+st.image("./Astroedu-Agent-Header.jpg", width=1100)
+
+st.markdown('<div class="title">Welcome to AstroEDU Agent</div>', unsafe_allow_html=True)
+
+st.markdown("""
+<div class="subtitle">
+I'm here to help you find and make the best use of educational materials from AstroEDU.<br>
+Ask me in your language and I will guide you to the most suitable activity for your classroom.
+</div>
+""", unsafe_allow_html=True)
+
+st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
+st.markdown('</div>', unsafe_allow_html=True)
+
 # Configura la pagina
 #st.set_page_config(page_title="AstroEdu AI Assistant", layout="wide")
 
 # Intestazione
 #st.markdown("<h1 style='text-align: center; color: #0004ff;'>Welcome to AstroEDU AI Assistant!</h1>", unsafe_allow_html=True)
-st.image("./Astroedu-Agent-Header.jpg", use_column_width=True) 
+#st.image("./Astroedu-Agent-Header.jpg", use_column_width=True) 
 
 # Sezione di Benvenuto
-st.markdown("<h2 style='color: #FFA500;'>Welcome to AstroEDU Agent!</h2>", unsafe_allow_html=True)
-st.markdown("I'm here to help you find and make the best use of educational materials from AstroEDU.<br>How can I assist you? If you want, speak to me in your language!", unsafe_allow_html=True)
+#st.markdown("<h2 style='color: #FFA500;'>Welcome to AstroEDU Agent!</h2>", unsafe_allow_html=True)
+#st.markdown("I'm here to help you find and make the best use of educational materials from AstroEDU.<br>How can I assist you? If you want, speak to me in your language!", unsafe_allow_html=True)
 
 # Funzione per ottenere la risposta dall'assistente AI
 def get_ai_response(question, chat_history):
