@@ -272,7 +272,7 @@ hr{ display:none !important; }
 
 # ---- BANNER (intero, ma nascondiamo fascia bianca) ----
 st.markdown('<div class="banner-crop">', unsafe_allow_html=True)
-st.image("./Astroedu-Agent-Header.jpg", use_column_width=True)
+st.image("./1.jpg", use_column_width=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
 # ---- TITOLO ----
