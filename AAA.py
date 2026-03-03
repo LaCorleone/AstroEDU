@@ -192,7 +192,7 @@ rag_chain = create_retrieval_chain(history_aware_retriever, question_answer_chai
 
 # Intestazione
 #st.markdown("<h1 style='text-align: center; color: #0004ff;'>Welcome to AstroEDU AI Assistant!</h1>", unsafe_allow_html=True)
-st.image("./LOGO2.webp", use_column_width=True) 
+st.image("./Astroedu-Agent-Header.jpg", use_column_width=True) 
 
 # Sezione di Benvenuto
 st.markdown("<h2 style='color: #FFA500;'>Welcome to AstroEDU Agent!</h2>", unsafe_allow_html=True)
