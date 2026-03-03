@@ -187,86 +187,98 @@ question_answer_chain = create_stuff_documents_chain(llm, qa_prompt)
 
 rag_chain = create_retrieval_chain(history_aware_retriever, question_answer_chain)
 
-
 import streamlit as st
 
-# Configura la pagina
 st.set_page_config(page_title="AstroEDU Agent", layout="wide")
 
-# ---------------- CSS (solo modifiche richieste) ----------------
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap');
 
-html, body, [class*="css"] { 
-    font-family: 'Montserrat', sans-serif !important; 
-}
+html, body, [class*="css"] { font-family: 'Montserrat', sans-serif !important; }
 
-/* Sfondo grigio coerente col banner */
 [data-testid="stAppViewContainer"],
 [data-testid="stMain"],
-.stApp {
-    background-color: #f6f6f6 !important;
+.stApp { background-color: #f6f6f6 !important; }
+
+.block-container{
+  padding-top: 0rem !important;
+  padding-bottom: 2rem !important;
+  max-width: 1400px !important;
 }
 
-/* Container un po' più largo e meno padding sopra */
-.block-container {
-    padding-top: 0rem !important;
-    padding-bottom: 2rem !important;
-    max-width: 1400px !important;   /* fa percepire il banner più grande */
+hr{ display:none !important; }
+
+/* --------- BANNER: mostra immagine ma "taglia" SOLO la fascia bianca sotto --------- */
+:root{
+  --cropBottom: 120px; /* <-- aumenta/diminuisci se serve (es. 90px, 140px) */
 }
 
-/* Evita righe/divider */
-hr { display: none !important; }
+.banner-crop {
+  max-width: 1400px;
+  margin: 0 auto;
+  overflow: hidden;              /* fondamentale */
+  background: transparent;
+}
+
+/* prende l'immagine renderizzata da Streamlit e la sposta su di --cropBottom */
+.banner-crop [data-testid="stImage"] img{
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  transform: translateY(calc(var(--cropBottom) * -1));
+}
+
+/* compensiamo l'altezza tolta così non rimane spazio vuoto */
+.banner-crop [data-testid="stImage"]{
+  margin-bottom: calc(var(--cropBottom) * -1) !important;
+}
 
 /* Titolo */
 .hero-title{
-    font-size: 56px;
-    font-weight: 800;
-    color: #F39C12;
-    text-align: center;
-    margin: 2rem 0 2rem 0;
-    letter-spacing: -0.5px;
+  font-size: 56px;
+  font-weight: 800;
+  color: #F39C12;
+  text-align: center;
+  margin: 2rem 0 2rem 0;
+  letter-spacing: -0.5px;
 }
 
-/* Chat: bordo arancione + tutto contenuto dentro */
+/* Chat */
 [data-testid="stChatInput"]{
-    max-width: 980px !important;
-    margin: 0 auto !important;
-    border-radius: 32px !important;
-    border: 2px solid #F39C12 !important;
-    background: #ffffff !important;
-    padding: 10px 16px !important;
+  max-width: 980px !important;
+  margin: 0 auto !important;
+  border-radius: 32px !important;
+  border: 2px solid #F39C12 !important;
+  background: #ffffff !important;
+  padding: 10px 16px !important;
 }
 
-/* Evita qualsiasi sforamento */
-[data-testid="stChatInput"] * {
-    max-width: 100% !important;
-    box-sizing: border-box !important;
+[data-testid="stChatInput"] *{
+  max-width: 100% !important;
+  box-sizing: border-box !important;
 }
 
-/* Pulsante invio arancione */
 [data-testid="stChatInput"] button,
-[data-testid="stChatInput"] button[kind="secondary"] {
-    background: #F39C12 !important;
-    border: none !important;
-    border-radius: 18px !important;
+[data-testid="stChatInput"] button[kind="secondary"]{
+  background: #F39C12 !important;
+  border: none !important;
+  border-radius: 18px !important;
 }
 
-[data-testid="stChatInput"] button svg {
-    color: white !important;
-}
+[data-testid="stChatInput"] button svg{ color:white !important; }
 </style>
 """, unsafe_allow_html=True)
 
-# ---------------- Intestazione (come nel tuo codice) ----------------
-# Banner grande e intero (nessun taglio)
+# ---- BANNER (intero, ma nascondiamo fascia bianca) ----
+st.markdown('<div class="banner-crop">', unsafe_allow_html=True)
 st.image("./Astroedu-Agent-Header.jpg", use_column_width=True)
+st.markdown('</div>', unsafe_allow_html=True)
 
-# Titolo (stesso testo, solo font e stile coerente)
+# ---- TITOLO ----
 st.markdown('<div class="hero-title">Welcome to AstroEDU Agent!</div>', unsafe_allow_html=True)
 
-# ---------------- Chat (UNA SOLA) ----------------
+# ---- CHAT ----
 st.chat_input("Enter your message")
 
 # Configura la pagina
