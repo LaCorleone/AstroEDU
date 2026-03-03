@@ -276,7 +276,23 @@ st.image("./2.png", use_column_width=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
 # ---- TITOLO ----
-st.markdown('<div class="hero-title">Welcome to AstroEDU Agent!</div>', unsafe_allow_html=True)
+#st.markdown('<div class="hero-title">Welcome to AstroEDU Agent!</div>', unsafe_allow_html=True)
+st.markdown("""
+<div style="
+    font-size: 26px;
+    font-weight: 600;
+    color: #F39C12;
+    text-align: center;
+    margin: 2.5rem 0 1.2rem 0;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+">
+I'm here to help you find and make the best use of educational materials from AstroEDU.<br>
+How can I assist you? If you want, speak to me in your language!
+</div>
+""", unsafe_allow_html=True)
 
 # ---- CHAT ----
 st.chat_input("Enter your message")
