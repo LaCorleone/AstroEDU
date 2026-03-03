@@ -275,7 +275,7 @@ st.markdown('</div>', unsafe_allow_html=True)
 
 # ---- TITOLO ----
 #st.markdown('<div class="hero-title">Welcome to AstroEDU Agent!</div>', unsafe_allow_html=True)
-st.markdown("""
+#st.markdown("""
 <div style="
     font-size: 18px;          /* più piccolo */
     font-weight: 500;         /* leggermente meno pesante */
