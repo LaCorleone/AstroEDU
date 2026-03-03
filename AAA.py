@@ -185,7 +185,7 @@ qa_prompt = ChatPromptTemplate.from_messages(
 
 question_answer_chain = create_stuff_documents_chain(llm, qa_prompt)
 
-import streamlit as st
+rag_chain = create_retrieval_chain(history_aware_retriever, question_answer_chain)
 
 st.set_page_config(page_title="AstroEDU Agent", layout="wide")
 
@@ -293,7 +293,7 @@ How can I assist you? If you want, speak to me in your language!
 """, unsafe_allow_html=True)
 
 # ---- CHAT ----
-st.chat_input("Enter your message")rag_chain = create_retrieval_chain(history_aware_retriever, question_answer_chain)
+st.chat_input("Enter your message")
 
 # Configura la pagina
 #st.set_page_config(page_title="AstroEdu AI Assistant", layout="wide")
