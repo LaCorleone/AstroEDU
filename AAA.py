@@ -187,70 +187,125 @@ question_answer_chain = create_stuff_documents_chain(llm, qa_prompt)
 
 rag_chain = create_retrieval_chain(history_aware_retriever, question_answer_chain)
 
+import base64
 import streamlit as st
+from pathlib import Path
 
 st.set_page_config(page_title="AstroEDU Agent", layout="wide")
 
-# ---- CSS: meno margini, look più moderno e coerente col banner ----
-st.markdown("""
+# --- helper: immagine locale -> base64 (così la usi in CSS) ---
+def img_to_base64(path: str) -> str:
+    data = Path(path).read_bytes()
+    return base64.b64encode(data).decode()
+
+banner_b64 = img_to_base64("Astroedu-Agent-Header.jpg")
+
+st.markdown(f"""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap');
 
-html, body, [class*="css"] { font-family: 'Montserrat', sans-serif; }
+html, body, [class*="css"] {{
+  font-family: 'Montserrat', sans-serif;
+}}
 
-/* sfondo chiaro come il banner */
-[data-testid="stAppViewContainer"] { background: #f6f6f6; }
+[data-testid="stAppViewContainer"] {{
+  background: #f6f6f6;
+}}
 
-/* elimina il padding enorme sopra/sotto e allarga il contenuto */
-.block-container {
-    padding-top: 0.6rem;
-    padding-bottom: 1.2rem;
-    max-width: 1200px;
-}
+/* Togli padding/margini enormi di Streamlit */
+.block-container {{
+  padding-top: 0rem !important;
+  padding-bottom: 1.2rem !important;
+  max-width: 1100px;
+}}
 
-/* HERO */
-.hero-title{
-    font-size: 52px;
-    font-weight: 800;
-    color: #F39C12;
-    text-align: center;
-    margin: 18px 0 8px 0;
-    letter-spacing: -0.5px;
-}
-.hero-sub{
-    font-size: 18px;
-    text-align: center;
-    color: #666;
-    margin: 0 auto 18px auto;
-    max-width: 820px;
-    line-height: 1.6;
-}
+/* Nascondi header di Streamlit se vuoi */
+header {{ visibility: hidden; }}
 
-/* “card” per il banner */
-.banner-card{
-    border-radius: 20px;
-    overflow: hidden;
-    background: white;
-    border: 1px solid rgba(0,0,0,0.06);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-    margin-top: 6px;
-}
+/* HERO full width */
+.hero-wrap {{
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}}
 
-/* rendi la chat input più carina */
-[data-testid="stChatInput"]{
-    border-radius: 16px;
-    border: 1px solid rgba(0,0,0,0.10);
-    background: white;
-}
+/* Banner full width senza spazi */
+.hero-banner {{
+  height: 280px;
+  border-radius: 18px;
+  background-image: url("data:image/jpg;base64,{banner_b64}");
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 14px 34px rgba(0,0,0,0.10);
+  margin-top: 12px;
+}}
+
+/* Titolo attaccato al banner, niente “deserto” */
+.hero-title {{
+  font-size: 54px;
+  font-weight: 800;
+  color: #F39C12;
+  text-align: center;
+  margin: 18px 0 8px 0;
+  letter-spacing: -0.5px;
+}}
+
+.hero-sub {{
+  font-size: 18px;
+  text-align: center;
+  color: #666;
+  margin: 0 auto 18px auto;
+  max-width: 860px;
+  line-height: 1.6;
+}}
+
+/* Feature pills */
+.pills {{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  flex-wrap: wrap;
+  margin: 10px 0 18px 0;
+}}
+.pill {{
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: white;
+  border: 1px solid rgba(0,0,0,0.08);
+  color: #444;
+  font-size: 13px;
+  font-weight: 600;
+}}
+
+/* Chat card: così l’input non sembra “staccato” */
+.chat-card {{
+  background: white;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+  margin-top: 10px;
+}}
+
+[data-testid="stChatInput"] {{
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,0.10);
+  background: white;
+}}
+
+hr {{
+  margin: 16px 0 10px 0;
+}}
+
 </style>
 """, unsafe_allow_html=True)
 
 # ---- HERO ----
-st.markdown('<div class="banner-card">', unsafe_allow_html=True)
-st.image("./Astroedu-Agent-Header.jpg", use_column_width=True)
-st.markdown('</div>', unsafe_allow_html=True)
-
+st.markdown('<div class="hero-wrap">', unsafe_allow_html=True)
+st.markdown('<div class="hero-banner"></div>', unsafe_allow_html=True)
 st.markdown('<div class="hero-title">Welcome to AstroEDU Agent</div>', unsafe_allow_html=True)
+
 st.markdown("""
 <div class="hero-sub">
 I help educators find the best <b>peer-reviewed</b> AstroEDU activities.<br>
@@ -258,7 +313,22 @@ Tell me the topic, students’ age, and the time you have — you can write in y
 </div>
 """, unsafe_allow_html=True)
 
-st.markdown("---")
+st.markdown("""
+<div class="pills">
+  <div class="pill">🌍 Multilingual</div>
+  <div class="pill">✅ Peer-reviewed</div>
+  <div class="pill">⚡ Fast activity search</div>
+</div>
+""", unsafe_allow_html=True)
+
+st.markdown("</div>", unsafe_allow_html=True)
+
+# ---- CHAT AREA (in una card) ----
+st.markdown('<div class="chat-card">', unsafe_allow_html=True)
+st.markdown("**Start here** → Ask for an activity (e.g., *“I need a 30-minute activity about the Moon for age 8–10”*)")
+st.markdown("</div>", unsafe_allow_html=True)
+
+# qui sotto ci metti la tua chat_input e la history
 
 # Configura la pagina
 #st.set_page_config(page_title="AstroEdu AI Assistant", layout="wide")
