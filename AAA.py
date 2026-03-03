@@ -255,7 +255,7 @@ hr { display: none !important; }
 
 # ---------------- HERO ----------------
 
-# 🔴 QUESTO MOSTRA L'IMMAGINE INTERA
+#QUESTO MOSTRA L'IMMAGINE INTERA
 st.image("./Astroedu-Agent-Header.jpg", use_column_width=True)
 
 st.markdown(
@@ -304,8 +304,6 @@ def chat_actions():
 if "chat_history" not in st.session_state:
     st.session_state["chat_history"] = []
 
-# Campo di input per i messaggi della chat
-st.chat_input("Enter your message", on_submit=chat_actions, key="chat_input")
 
 # Visualizza la cronologia dei messaggi della chat
 for i in st.session_state["chat_history"]:
