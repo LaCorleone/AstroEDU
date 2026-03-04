@@ -187,6 +187,8 @@ question_answer_chain = create_stuff_documents_chain(llm, qa_prompt)
 
 rag_chain = create_retrieval_chain(history_aware_retriever, question_answer_chain)
 
+import streamlit as st
+
 st.set_page_config(page_title="AstroEDU Agent", layout="wide")
 
 st.markdown("""
@@ -232,16 +234,6 @@ hr{ display:none !important; }
   margin-bottom: calc(var(--cropBottom) * -1) !important;
 }
 
-/* Titolo */
-.hero-title{
-  font-size: 56px;
-  font-weight: 800;
-  color: #F39C12;
-  text-align: center;
-  margin: 2rem 0 2rem 0;
-  letter-spacing: -0.5px;
-}
-
 /* Chat */
 [data-testid="stChatInput"]{
   max-width: 980px !important;
@@ -265,19 +257,40 @@ hr{ display:none !important; }
 }
 
 [data-testid="stChatInput"] button svg{ color:white !important; }
+
+/* ---- FRASE SOPRA LA CHAT (fixed: non muove il banner) ---- */
+.chat-helper-fixed{
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 95px;              /* regola qui la distanza sopra la barra */
+  max-width: 980px;
+  width: calc(100% - 2rem);
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  color: #F39C12;
+  z-index: 9999;
+  pointer-events: none;      /* non blocca click nella chat */
+}
 </style>
 """, unsafe_allow_html=True)
 
-# ---- BANNER (intero, ma nascondiamo fascia bianca) ----
+# ---- BANNER ----
 st.markdown('<div class="banner-crop">', unsafe_allow_html=True)
 st.image("./4.png", use_column_width=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
+# ---- FRASE SOPRA LA CHAT ----
+st.markdown("""
+<div class="chat-helper-fixed">
+Hi! I'm the AstroEDU Agent. I can help you find and make the best use of AstroEDU resources.
+Ask me anything, and feel free to speak in your own language!
+</div>
+""", unsafe_allow_html=True)
 
-# ---- CHAT (soluzione 2: testo dentro la barra come placeholder) ----
-prompt = st.chat_input(
-    "Enter your message..."
-)
+# ---- CHAT ----
+prompt = st.chat_input("Enter your message...")
 
 # Configura la pagina
 #st.set_page_config(page_title="AstroEdu AI Assistant", layout="wide")
