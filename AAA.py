@@ -278,16 +278,8 @@ hr{ display:none !important; }
 
 # ---- BANNER ----
 st.markdown('<div class="banner-crop">', unsafe_allow_html=True)
-st.image("./4.png", use_column_width=True)
+st.image("./5.png", use_column_width=True)
 st.markdown('</div>', unsafe_allow_html=True)
-
-# ---- FRASE SOPRA LA CHAT ----
-st.markdown("""
-<div class="chat-helper-fixed">
-Hi! I'm the AstroEDU Agent. I can help you find and make the best use of AstroEDU resources.
-Ask me anything, and feel free to speak in your own language!
-</div>
-""", unsafe_allow_html=True)
 
 # ---- CHAT ----
 prompt = st.chat_input("Enter your message...")
