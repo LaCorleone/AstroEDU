@@ -279,8 +279,6 @@ st.markdown('<div class="banner-crop">', unsafe_allow_html=True)
 st.image("./5.png", use_column_width=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
-# ---- CHAT ----
-#prompt = st.chat_input("Enter your message...")
 
 # ---------- SESSION: chat history come BaseMessage ----------
 if "chat_history" not in st.session_state:
@@ -298,7 +296,7 @@ prompt = st.chat_input("Enter your message...")
 if prompt:
     st.session_state.chat_history.append(HumanMessage(content=prompt))
 
-    with st.spinner("Thinking..."):
+    with st.spinner("Searching AstroEDU..."):
         result = rag_chain.invoke({
             "chat_history": st.session_state.chat_history,
             "input": prompt
