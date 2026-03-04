@@ -270,7 +270,7 @@ hr{ display:none !important; }
 
 # ---- BANNER (intero, ma nascondiamo fascia bianca) ----
 st.markdown('<div class="banner-crop">', unsafe_allow_html=True)
-st.image("./3.png", use_column_width=True)
+st.image("./4.png", use_column_width=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
 
