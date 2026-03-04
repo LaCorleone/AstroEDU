@@ -273,7 +273,7 @@ st.markdown('<div class="banner-crop">', unsafe_allow_html=True)
 st.image("./2.png", use_column_width=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
-
+# ---- FRASE ----
 st.markdown("""
 <div style="
 font-size:18px;
@@ -281,12 +281,12 @@ font-weight:500;
 color:#F39C12;
 text-align:center;
 margin-top:10px;
-margin-bottom:10px;">
+margin-bottom:5px;">
 I'm here to help you find and make the best use of educational materials from AstroEDU.
 </div>
 """, unsafe_allow_html=True)
 
-
+# ---- CHAT ----
 prompt = st.chat_input("Enter your message")
 
 # Configura la pagina
