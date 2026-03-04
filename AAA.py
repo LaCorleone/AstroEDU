@@ -273,24 +273,20 @@ st.markdown('<div class="banner-crop">', unsafe_allow_html=True)
 st.image("./2.png", use_column_width=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
+
 st.markdown("""
 <div style="
-    font-size: 15px;
-    font-weight: 500;
-    color: #F39C12;
-    text-align: center;
-    margin: 1rem 0 0.6rem 0;
-    max-width: 750px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.4;">
-I'm here to help you find and make the best use of educational materials from AstroEDU.<br>
-How can I assist you? If you want, speak to me in your language!
+    font-size:16px;
+    font-weight:500;
+    color:#F39C12;
+    text-align:center;
+    margin-bottom:10px;">
+I'm here to help you find and make the best use of educational materials from AstroEDU.
 </div>
 """, unsafe_allow_html=True)
 
-# ---- CHAT ----
-st.chat_input("Enter your message")
+prompt = st.chat_input("Enter your message")
+
 
 # Configura la pagina
 #st.set_page_config(page_title="AstroEdu AI Assistant", layout="wide")
