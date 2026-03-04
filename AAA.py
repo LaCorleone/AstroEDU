@@ -187,8 +187,6 @@ question_answer_chain = create_stuff_documents_chain(llm, qa_prompt)
 
 rag_chain = create_retrieval_chain(history_aware_retriever, question_answer_chain)
 
-import streamlit as st
-
 st.set_page_config(page_title="AstroEDU Agent", layout="wide")
 
 st.markdown("""
@@ -282,18 +280,34 @@ st.image("./5.png", use_column_width=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
 # ---- CHAT ----
+#prompt = st.chat_input("Enter your message...")
+
+# ---------- SESSION: chat history come BaseMessage ----------
+if "chat_history" not in st.session_state:
+    st.session_state.chat_history = []  # lista di HumanMessage/AIMessage
+
+# mostra messaggi
+for msg in st.session_state.chat_history:
+    role = "assistant" if isinstance(msg, AIMessage) else "user"
+    with st.chat_message(role):
+        st.write(msg.content)
+
+# input
 prompt = st.chat_input("Enter your message...")
 
-# Configura la pagina
-#st.set_page_config(page_title="AstroEdu AI Assistant", layout="wide")
+if prompt:
+    st.session_state.chat_history.append(HumanMessage(content=prompt))
 
-# Intestazione
-#st.markdown("<h1 style='text-align: center; color: #0004ff;'>Welcome to AstroEDU AI Assistant!</h1>", unsafe_allow_html=True)
-#st.image("./Astroedu-Agent-Header.jpg", use_column_width=True) 
+    result = rag_chain.invoke({
+        "chat_history": st.session_state.chat_history,
+        "input": prompt
+    })
 
-# Sezione di Benvenuto
-#st.markdown("<h2 style='color: #FFA500;'>Welcome to AstroEDU Agent!</h2>", unsafe_allow_html=True)
-#st.markdown("I'm here to help you find and make the best use of educational materials from AstroEDU.<br>How can I assist you? If you want, speak to me in your language!", unsafe_allow_html=True)
+    answer = result["answer"]
+    st.session_state.chat_history.append(AIMessage(content=answer))
+
+    st.rerun()
+
 
 # Funzione per ottenere la risposta dall'assistente AI
 def get_ai_response(question, chat_history):
@@ -315,11 +329,11 @@ def chat_actions():
 
 
 # Inizializza la cronologia della chat se non esiste
-if "chat_history" not in st.session_state:
-    st.session_state["chat_history"] = []
+#if "chat_history" not in st.session_state:
+ #   st.session_state["chat_history"] = []
 
 
 # Visualizza la cronologia dei messaggi della chat
-for i in st.session_state["chat_history"]:
-    with st.chat_message(name=i["role"]):
-        st.write(i["content"])     
+#for i in st.session_state["chat_history"]:
+ #   with st.chat_message(name=i["role"]):
+  #      st.write(i["content"])     
