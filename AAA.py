@@ -298,10 +298,11 @@ prompt = st.chat_input("Enter your message...")
 if prompt:
     st.session_state.chat_history.append(HumanMessage(content=prompt))
 
-    result = rag_chain.invoke({
-        "chat_history": st.session_state.chat_history,
-        "input": prompt
-    })
+    with st.spinner("Thinking..."):
+        result = rag_chain.invoke({
+            "chat_history": st.session_state.chat_history,
+            "input": prompt
+        })
 
     answer = result["answer"]
     st.session_state.chat_history.append(AIMessage(content=answer))
