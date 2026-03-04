@@ -270,13 +270,13 @@ hr{ display:none !important; }
 
 # ---- BANNER (intero, ma nascondiamo fascia bianca) ----
 st.markdown('<div class="banner-crop">', unsafe_allow_html=True)
-st.image("./2.png", use_column_width=True)
+st.image("./3.png", use_column_width=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
 
 # ---- CHAT (soluzione 2: testo dentro la barra come placeholder) ----
 prompt = st.chat_input(
-    "Describe the activity you are looking for (topic, age, duration)…"
+    "Enter your message..."
 )
 
 # Configura la pagina
