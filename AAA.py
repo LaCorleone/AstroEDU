@@ -187,8 +187,6 @@ question_answer_chain = create_stuff_documents_chain(llm, qa_prompt)
 
 rag_chain = create_retrieval_chain(history_aware_retriever, question_answer_chain)
 
-import streamlit as st
-
 st.set_page_config(page_title="AstroEDU Agent", layout="wide")
 
 st.markdown("""
@@ -209,19 +207,19 @@ html, body, [class*="css"] { font-family: 'Montserrat', sans-serif !important; }
 
 hr{ display:none !important; }
 
-/* -------- BANNER -------- */
-
+/* --------- BANNER: mostra immagine ma "taglia" SOLO la fascia bianca sotto --------- */
 :root{
-  --cropBottom: 120px;
+  --cropBottom: 120px; /* <-- aumenta/diminuisci se serve (es. 90px, 140px) */
 }
 
 .banner-crop {
   max-width: 1400px;
   margin: 0 auto;
-  overflow: hidden;
+  overflow: hidden;              /* fondamentale */
   background: transparent;
 }
 
+/* prende l'immagine renderizzata da Streamlit e la sposta su di --cropBottom */
 .banner-crop [data-testid="stImage"] img{
   width: 100% !important;
   height: auto !important;
@@ -229,12 +227,22 @@ hr{ display:none !important; }
   transform: translateY(calc(var(--cropBottom) * -1));
 }
 
+/* compensiamo l'altezza tolta così non rimane spazio vuoto */
 .banner-crop [data-testid="stImage"]{
   margin-bottom: calc(var(--cropBottom) * -1) !important;
 }
 
-/* -------- CHAT -------- */
+/* Titolo */
+.hero-title{
+  font-size: 56px;
+  font-weight: 800;
+  color: #F39C12;
+  text-align: center;
+  margin: 2rem 0 2rem 0;
+  letter-spacing: -0.5px;
+}
 
+/* Chat */
 [data-testid="stChatInput"]{
   max-width: 980px !important;
   margin: 0 auto !important;
@@ -244,55 +252,32 @@ hr{ display:none !important; }
   padding: 10px 16px !important;
 }
 
-[data-testid="stChatInput"] button{
+[data-testid="stChatInput"] *{
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+[data-testid="stChatInput"] button,
+[data-testid="stChatInput"] button[kind="secondary"]{
   background: #F39C12 !important;
   border: none !important;
   border-radius: 18px !important;
 }
 
-[data-testid="stChatInput"] button svg{
-  color:white !important;
-}
-
-/* -------- TESTO SOPRA CHAT -------- */
-
-.chat-helper-fixed{
-  position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 95px;
-  max-width: 980px;
-  width: calc(100% - 2rem);
-  text-align: center;
-  font-size: 16px;
-  font-weight: 500;
-  color: #F39C12;
-  z-index: 9999;
-  pointer-events: none;
-}
+[data-testid="stChatInput"] button svg{ color:white !important; }
 </style>
 """, unsafe_allow_html=True)
 
-
-# -------- BANNER --------
-
+# ---- BANNER (intero, ma nascondiamo fascia bianca) ----
 st.markdown('<div class="banner-crop">', unsafe_allow_html=True)
 st.image("./2.png", use_column_width=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
 
-# -------- FRASE SOPRA CHAT --------
-
-st.markdown("""
-<div class="chat-helper-fixed">
-I'm here to help you find and make the best use of educational materials from AstroEDU.
-</div>
-""", unsafe_allow_html=True)
-
-
-# -------- CHAT INPUT --------
-
-prompt = st.chat_input("Enter your message")
+# ---- CHAT (soluzione 2: testo dentro la barra come placeholder) ----
+prompt = st.chat_input(
+    "Describe the activity you are looking for (topic, age, duration)…"
+)
 
 # Configura la pagina
 #st.set_page_config(page_title="AstroEdu AI Assistant", layout="wide")
