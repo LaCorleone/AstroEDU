@@ -187,46 +187,39 @@ question_answer_chain = create_stuff_documents_chain(llm, qa_prompt)
 
 rag_chain = create_retrieval_chain(history_aware_retriever, question_answer_chain)
 
-st.set_page_config(page_title="AstroEDU Agent", layout="centered")
+st.set_page_config(page_title="AstroEDU Agent", layout="wide")
 
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap');
 
-html, body, [class*="css"] { 
-    font-family: 'Montserrat', sans-serif !important; 
-}
+html, body, [class*="css"] { font-family: 'Montserrat', sans-serif !important; }
 
 [data-testid="stAppViewContainer"],
 [data-testid="stMain"],
-.stApp { 
-    background-color: #f6f6f6 !important; 
-}
+.stApp { background-color: #f6f6f6 !important; }
 
 .block-container{
   padding-top: 0rem !important;
-  padding-bottom: 5.5rem !important;
-  max-width: 1000px !important;
-  padding-left: 1rem !important;
-  padding-right: 1rem !important;
+  padding-bottom: 2rem !important;
+  max-width: 1400px !important;
 }
 
-hr{ 
-  display:none !important; 
-}
+hr{ display:none !important; }
 
-/* Banner */
+/* --------- BANNER: mostra immagine ma "taglia" SOLO la fascia bianca sotto --------- */
 :root{
-  --cropBottom: 70px;
+  --cropBottom: 120px; /* <-- aumenta/diminuisci se serve (es. 90px, 140px) */
 }
 
 .banner-crop {
-  max-width: 1000px;
-  margin: 0 auto 1rem auto;
-  overflow: hidden;
+  max-width: 1400px;
+  margin: 0 auto;
+  overflow: hidden;              /* fondamentale */
   background: transparent;
 }
 
+/* prende l'immagine renderizzata da Streamlit e la sposta su di --cropBottom */
 .banner-crop [data-testid="stImage"] img{
   width: 100% !important;
   height: auto !important;
@@ -234,18 +227,19 @@ hr{
   transform: translateY(calc(var(--cropBottom) * -1));
 }
 
+/* compensiamo l'altezza tolta così non rimane spazio vuoto */
 .banner-crop [data-testid="stImage"]{
   margin-bottom: calc(var(--cropBottom) * -1) !important;
 }
 
-/* Chat input */
+/* Chat */
 [data-testid="stChatInput"]{
-  max-width: 100% !important;
+  max-width: 980px !important;
   margin: 0 auto !important;
-  border-radius: 28px !important;
+  border-radius: 32px !important;
   border: 2px solid #F39C12 !important;
   background: #ffffff !important;
-  padding: 8px 12px !important;
+  padding: 10px 16px !important;
 }
 
 [data-testid="stChatInput"] *{
@@ -260,54 +254,22 @@ hr{
   border-radius: 18px !important;
 }
 
-[data-testid="stChatInput"] button svg{ 
-  color: white !important; 
-}
+[data-testid="stChatInput"] button svg{ color:white !important; }
 
-/* Messaggi chat */
-[data-testid="stChatMessage"] {
-  max-width: 100% !important;
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-
-  .block-container{
-    max-width: 100% !important;
-    padding-left: 0.6rem !important;
-    padding-right: 0.6rem !important;
-    padding-top: 0rem !important;
-    padding-bottom: 6rem !important;
-  }
-
-  :root{
-    --cropBottom: 10px;
-  }
-
-  .banner-crop{
-    max-width: 100% !important;
-    margin: 0 auto 0.5rem auto !important;
-  }
-
-  .banner-crop [data-testid="stImage"] img{
-    width: 100% !important;
-    height: auto !important;
-    transform: translateY(calc(var(--cropBottom) * -1)) !important;
-  }
-
-  .banner-crop [data-testid="stImage"]{
-    margin-bottom: calc(var(--cropBottom) * -1) !important;
-  }
-
-  [data-testid="stChatInput"]{
-    max-width: 100% !important;
-    border-radius: 24px !important;
-    padding: 6px 10px !important;
-  }
-
-  p, h1, h2, h3 {
-    text-align: center !important;
-  }
+/* ---- FRASE SOPRA LA CHAT (fixed: non muove il banner) ---- */
+.chat-helper-fixed{
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 95px;              /* regola qui la distanza sopra la barra */
+  max-width: 980px;
+  width: calc(100% - 2rem);
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  color: #F39C12;
+  z-index: 9999;
+  pointer-events: none;      /* non blocca click nella chat */
 }
 </style>
 """, unsafe_allow_html=True)
