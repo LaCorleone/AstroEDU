@@ -329,7 +329,6 @@ for msg in st.session_state.chat_history:
 
 # input
 prompt = st.chat_input("Enter your message...")
-#prompt = st.form_input("Enter your message...")
 
 if prompt:
     st.session_state.chat_history.append(HumanMessage(content=prompt))
