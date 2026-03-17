@@ -314,7 +314,8 @@ hr{
 
 # ---- BANNER ----
 st.markdown('<div class="banner-crop">', unsafe_allow_html=True)
-st.image("./5.png", use_column_width=True)
+#st.image("./5.png", use_column_width=True)
+#st.image("./5.png")
 st.markdown('</div>', unsafe_allow_html=True)
 
 # ---------- SESSION: chat history come BaseMessage ----------
